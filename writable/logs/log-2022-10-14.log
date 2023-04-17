@@ -1,0 +1,20 @@
+CRITICAL - 2022-10-14 08:11:23 --> Object of class DateTime could not be converted to string
+in APPPATH\Views\pages\WeekOverview.php on line 6.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 4 APPPATH\Controllers\WeekOverview.php(103): view('pages/WeekOverview', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->pickDate()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-14 08:11:25 --> Object of class DateTime could not be converted to string
+in APPPATH\Views\pages\WeekOverview.php on line 6.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 4 APPPATH\Controllers\WeekOverview.php(103): view('pages/WeekOverview', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->pickDate()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

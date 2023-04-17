@@ -1,0 +1,181 @@
+CRITICAL - 2022-09-08 19:56:24 --> A non well formed numeric value encountered
+in APPPATH\Views\pages\WeekOverview.php on line 6.
+ 1 APPPATH\Views\pages\WeekOverview.php(6): CodeIgniter\Debug\Exceptions->errorHandler(8, 'A non well formed numeric value encountered', 'APPPATH\\Views\\pages\\WeekOverview.php', 6, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\WeekOverview.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 5 APPPATH\Controllers\WeekOverview.php(10): view('pages/WeekOverview')
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 20:17:49 --> mktime(): You should be using the time() function instead
+in APPPATH\Views\pages\WeekOverview.php on line 3.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'mktime(): You should be using the time() function instead', 'APPPATH\\Views\\pages\\WeekOverview.php', 3, [...])
+ 2 APPPATH\Views\pages\WeekOverview.php(3): mktime()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\WeekOverview.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 6 APPPATH\Controllers\WeekOverview.php(10): view('pages/WeekOverview')
+ 7 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 20:49:41 --> A non well formed numeric value encountered
+in APPPATH\Controllers\WeekOverview.php on line 16.
+ 1 APPPATH\Controllers\WeekOverview.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'A non well formed numeric value encountered', 'APPPATH\\Controllers\\WeekOverview.php', 16, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 21:43:36 --> Use of undefined constant index - assumed 'index' (this will throw an Error in a future version of PHP)
+in APPPATH\Views\pages\WeekOverview.php on line 15.
+ 1 APPPATH\Views\pages\WeekOverview.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefined constant index - assumed \'index\' (this will throw an Error in a future version of PHP)', 'APPPATH\\Views\\pages\\WeekOverview.php', 15, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\WeekOverview.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 5 APPPATH\Controllers\WeekOverview.php(20): view('pages/WeekOverview', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:04:51 --> Invalid file: registration.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('registration.php')
+ 2 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('registration', [], true)
+ 3 APPPATH\Controllers\WeekOverview.php(25): view('registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:05:11 --> Undefined variable: data
+in APPPATH\Controllers\WeekOverview.php on line 26.
+ 1 APPPATH\Controllers\WeekOverview.php(26): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data', 'APPPATH\\Controllers\\WeekOverview.php', 26, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:05:25 --> Undefined variable: data
+in APPPATH\Controllers\WeekOverview.php on line 26.
+ 1 APPPATH\Controllers\WeekOverview.php(26): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data', 'APPPATH\\Controllers\\WeekOverview.php', 26, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:07:28 --> The route for "http://localhost/weekly_todos/public" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:07:44 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:07:51 --> The route for "http://localhost/weekly_todos/public/index.php/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/index.php/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/index.php/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:06 --> The route for "http://localhost/weekly_todos/public" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:23 --> The route for "http://localhost/weekly_todos/public/index.php" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/index.php')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/index.php')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:30 --> The route for "http://localhost/weekly_todos/public/index.php/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/index.php/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/index.php/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:30 --> The route for "http://localhost/weekly_todos/public/index.php/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/index.php/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/index.php/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:42 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:43 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:43 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:08:47 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:09:20 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-08 22:09:25 --> The route for "http://localhost/weekly_todos/public/registration" cannot be found.
+in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
+ 1 SYSTEMPATH\HTTP\RedirectResponse.php(60): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('http://localhost/weekly_todos/public/registration')
+ 2 SYSTEMPATH\Common.php(864): CodeIgniter\HTTP\RedirectResponse->route(false)
+ 3 APPPATH\Controllers\WeekOverview.php(26): redirect('http://localhost/weekly_todos/public/registration')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->button_filter()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

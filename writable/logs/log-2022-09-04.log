@@ -1,0 +1,48 @@
+CRITICAL - 2022-09-04 04:10:25 --> Undefined variable: data
+in APPPATH\Controllers\Login.php on line 12.
+ 1 APPPATH\Controllers\Login.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data', 'APPPATH\\Controllers\\Login.php', 12, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Login->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-04 08:11:57 --> Invalid file: css/Login.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('css/Login.php')
+ 2 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('css/Login', [], true)
+ 3 APPPATH\Views\pages\LoginTest.php(2): view('css/Login')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\LoginTest.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/LoginTest', [], true)
+ 7 APPPATH\Controllers\Login.php(14): view('pages/LoginTest')
+ 8 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Login->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-04 08:18:25 --> Undefined property: App\Controllers\Login::$load
+in APPPATH\Controllers\Login.php on line 11.
+ 1 APPPATH\Controllers\Login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Login::$load', 'APPPATH\\Controllers\\Login.php', 11, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Login->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-04 08:18:28 --> Undefined property: App\Controllers\Login::$load
+in APPPATH\Controllers\Login.php on line 11.
+ 1 APPPATH\Controllers\Login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Login::$load', 'APPPATH\\Controllers\\Login.php', 11, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Login->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-04 08:18:32 --> Undefined property: App\Controllers\Login::$load
+in APPPATH\Controllers\Login.php on line 11.
+ 1 APPPATH\Controllers\Login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Login::$load', 'APPPATH\\Controllers\\Login.php', 11, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Login->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-04 08:18:50 --> Undefined property: App\Controllers\Login::$load
+in APPPATH\Controllers\Login.php on line 11.
+ 1 APPPATH\Controllers\Login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined property: App\\Controllers\\Login::$load', 'APPPATH\\Controllers\\Login.php', 11, [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Login->index()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

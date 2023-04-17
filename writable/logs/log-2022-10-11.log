@@ -1,0 +1,41 @@
+CRITICAL - 2022-10-11 11:00:49 --> Cannot use object of type CodeIgniter\Session\Session as array
+in APPPATH\Controllers\WeekOverview.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->index()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-11 11:01:06 --> Cannot use object of type CodeIgniter\Session\Session as array
+in APPPATH\Controllers\WeekOverview.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->index()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-11 11:54:38 --> Undefined index: monday
+in APPPATH\Views\pages\WeekOverview.php on line 5.
+ 1 APPPATH\Views\pages\WeekOverview.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: monday', 'APPPATH\\Views\\pages\\WeekOverview.php', 5, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\WeekOverview.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 5 APPPATH\Controllers\WeekOverview.php(102): view('pages/WeekOverview', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->pickDate()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-11 12:29:03 --> Undefined index: monday
+in APPPATH\Views\pages\WeekOverview.php on line 23.
+ 1 APPPATH\Views\pages\WeekOverview.php(23): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: monday', 'APPPATH\\Views\\pages\\WeekOverview.php', 23, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\pages\\WeekOverview.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/WeekOverview', [], true)
+ 5 APPPATH\Controllers\WeekOverview.php(102): view('pages/WeekOverview', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->pickDate()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-10-11 12:29:10 --> Undefined index: dateInput
+in APPPATH\Controllers\WeekOverview.php on line 77.
+ 1 APPPATH\Controllers\WeekOverview.php(77): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: dateInput', 'APPPATH\\Controllers\\WeekOverview.php', 77, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\WeekOverview->pickDate()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\WeekOverview))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

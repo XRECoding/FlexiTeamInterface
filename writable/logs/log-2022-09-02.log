@@ -1,0 +1,20 @@
+CRITICAL - 2022-09-02 04:41:21 --> Undefined variable: title
+in APPPATH\Views\templates\header.php on line 6.
+ 1 APPPATH\Views\templates\header.php(6): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: title', 'APPPATH\\Views\\templates\\header.php', 6, [])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\templates\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('templates/header.php', [], true)
+ 5 APPPATH\Controllers\test.php(12): view('templates/header.php')
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\test->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\test))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-02 04:42:53 --> Invalid file: pages/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/index.php')
+ 2 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('pages/index', [], true)
+ 3 APPPATH\Controllers\test.php(15): view('pages/index')
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\test->index()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\test))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
