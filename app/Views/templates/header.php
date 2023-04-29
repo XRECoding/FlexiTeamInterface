@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" style="height:100%">
     <head>
         <?php echo '<title>', $title, '</title>'; ?>
@@ -8,7 +9,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 
-        <!-- Go JS Library --!>
+        <!-- Go JS Library -->
         <script src="<?php echo base_url('JavaScript/GoJS/release/go-debug.js')?>" ></script>
         
         <!-- jQuery -->
