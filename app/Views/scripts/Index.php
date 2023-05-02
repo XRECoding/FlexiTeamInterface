@@ -5,7 +5,7 @@
     var myDiagram = 
         $(go.Diagram, "myDiagramDiv", {
             // Definiere verschiedene Eigenschaften für das Diagramm-Modell
-            // isReadOnly: true
+            isReadOnly: true
         }
     );
 
@@ -46,14 +46,14 @@
     // Setze die Knotenpunkte an die zuvor angegebene Position
     // Es ist mir nicht klar wieso es nicht automatisch passiert, daher
     // muss es nochmal manuel gemacht werden... TODO: maybe fix later
-    myDiagram.addDiagramListener("InitialLayoutCompleted", function() {
-        myDiagram.nodes.each(function(node) {
-            var loc = node.data.loc;
-            if (loc) {  // Wenn die "loc"-Eigenschaft vorhanden ist
-                node.position = new go.Point(loc.x, loc.y);
-            }
-        });
-    });
+    // myDiagram.addDiagramListener("InitialLayoutCompleted", function() {
+    //     myDiagram.nodes.each(function(node) {
+    //         var loc = node.data.loc;
+    //         if (loc) {  // Wenn die "loc"-Eigenschaft vorhanden ist
+    //             node.position = new go.Point(loc.x, loc.y);
+    //         }
+    //     });
+    // });
     
 
 
@@ -80,12 +80,9 @@
             { id: 8, data:"h", staff:"8", next: [], task:"Transport to postpartum room" } 
         ];
 
-        const test = [];
-        console.log(!test[1]);
-
         // BreadthFirstSearch(nodes);
         dfs(nodes, 1, 1);
-        myDiagram.redraw();
+        // myDiagram.redraw();
 
 
         // const links = [ // Erstelle Verbindungen für die Diagramm-Knoten
