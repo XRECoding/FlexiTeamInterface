@@ -8,8 +8,8 @@ class Index extends BaseController {
 
         echo view('templates/header', $data);
         echo view('pages/Index');
-        // echo view('scripts/Index');
-        echo view('scripts/XMLParser');
+        echo view('scripts/Index');
+        // echo view('scripts/XMLParser');
         //echo view('pages/Test');
         echo view('templates/footer');
     }
