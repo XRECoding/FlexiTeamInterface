@@ -14,12 +14,25 @@
         }
     );
 
+    
 
-    // Definiere ein Link-Template, um die Verbindungen des Diagramms optisch anzupassen.
+    // Definiere Link-Templates, um die Verbindungen des Diagramms optisch anzupassen.
     // Durch die Verwendung eines separaten Link-Templates können wir das Aussehen der
     // Links beeinflussen, z.B. indem wir sie orthogonal darstellen.
 
-    myDiagram.linkTemplate =
+    var template1 =
+        $(go.Link, {
+            routing: go.Link.Orthogonal, // Links sollen orthogonal dargestellt werden.
+            corner: 10 // Die Kanten der Links werden abgerundet.
+        },
+        $(go.Shape, {
+            stroke: "black", // Die Farbe der Linie des Links ist rot.
+            strokeWidth: 2 // Die Linienstärke des Links beträgt 2 Pixel.
+        }),
+        { isLayoutPositioned: false } // Link wird vom Tree-Layout-Algorithmus ausgeschlossen
+    );
+
+    var template2 =
         $(go.Link, {
             routing: go.Link.Orthogonal, // Links sollen orthogonal dargestellt werden.
             corner: 10 // Die Kanten der Links werden abgerundet.
@@ -29,6 +42,10 @@
             strokeWidth: 2 // Die Linienstärke des Links beträgt 2 Pixel.
         })
     );
+
+    myDiagram.linkTemplateMap.add("template1", template1);
+    myDiagram.linkTemplateMap.add("template2", template2);
+
 
 
     // Funktion zur Erstellung eines Knoten-Templates. Alle Knoten verhalten sich gleich,
@@ -54,6 +71,7 @@
     // Definiere die Knoten-Templates für verschiedene Kategorien
     myDiagram.nodeTemplateMap.add("Rectangle", createNodeTemplate("Rectangle"));
     myDiagram.nodeTemplateMap.add("Ellipse", createNodeTemplate("Ellipse"));
+
 
 
     // Zur Erstellung der Logikgatter muss eine separate Form definiert werden,
@@ -82,8 +100,8 @@
     // der einzige Unterschied liegt in der Farbe. Daher wurden die Gruppen-Templates in eine
     // Funktion umgewandelt, die die Farbe als Parameter erhält.
 
-    function createGroupTemplate(color) {
-        return $(go.Group, "Vertical", {
+    var gruppe1 = 
+        $(go.Group, "Vertical", {
             layout: $(go.LayeredDigraphLayout, { direction: 0 }),
             click: function(e, group) {
                 // Behandle den Klick auf die Gruppe hier
@@ -91,18 +109,38 @@
             }
         },
         $(go.Panel, "Auto",
-            $(go.Shape, "Ellipse", {
-                fill: color // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
+            $(go.Shape, "RoundedRectangle", {
+                fill: "transparent", // Füllfarbe auf transparent setzen
+                opacity: 0 // Opazität auf 0 setzen
             }),
             $(go.Placeholder, {
-                padding: 0
+                padding: 3
             })
         ));
-    }
+
+    var gruppe2 = 
+        $(go.Group, "Vertical", {
+            layout: $(go.LayeredDigraphLayout, { direction: 0 }),
+            click: function(e, group) {
+                // Behandle den Klick auf die Gruppe hier
+                console.log("Gruppe wurde geklickt: " + group.data.key);
+            }
+        },
+        $(go.Panel, "Auto",
+            $(go.Shape, "RoundedRectangle", {
+                fill: "red", // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
+                
+            }),
+            $(go.Placeholder, {
+                padding: 3
+            })
+        ));
+
 
     // Definiere die Gruppen-Templates
-    myDiagram.groupTemplateMap.add("Gruppe1", createGroupTemplate("grey"));
-    myDiagram.groupTemplateMap.add("Gruppe2", createGroupTemplate("red"));
+    myDiagram.groupTemplateMap.add("Gruppe1", gruppe1);
+    myDiagram.groupTemplateMap.add("Gruppe2", gruppe2);
+
 
 
     // Hierbei handelt es sich um Testdaten. Die tatsächlichen Daten müssen zu einem späteren Zeitpunkt
@@ -145,6 +183,11 @@
         myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.data, category: "Ellipse", group: currentNodeId + "group"});
         myDiagram.model.addNodeData({key: currentNodeId, text: currentNode.task, category: "Rectangle", group: currentNodeId + "group"});
         myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.staff, category: "Ellipse", group: currentNodeId + "group"});
+        // Fügen Sie einen Link mit individuellen Eigenschaften zum Diagramm hinzu, einschließlich "isLayoutPositioned"
+        myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, color: "red", category: "template1"});
+        myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, color: "red", category: "template1"});
+
+
 
         if (nextNodes.length > 1) {
             myDiagram.model.addNodeData({key: (currentNodeId + "gate"), text: "AND", category: "Circle"});
@@ -157,13 +200,15 @@
             // Setze die Verbindungen für die Diagramm-Knoten 
             if (nextNodes.length > 1) {
                 // Setze die Verbindungen ausgehend zum Logic-Gate
-                myDiagram.model.addLinkData({from: (currentNodeId + "gate"), to: nextNodes[i]});
+                myDiagram.model.addLinkData({from: (currentNodeId + "gate"), to: nextNodes[i], category: "template2"});
             } else {
                 // Setze die Verbindungen ausgehend vom Diagramm-Knoten 
-                myDiagram.model.addLinkData({from: currentNodeId, to: nextNodes[i]});
+                myDiagram.model.addLinkData({from: currentNodeId, to: nextNodes[i], category: "template2"});
             }
         }
     }
+
+
 
     // Hinzufügen eines Event Listeners für das "InitialLayoutCompleted"-Ereignis.
     // Das Diagramm ist zu groß, um es standardmäßig vollständig anzuzeigen. Daher
@@ -237,6 +282,7 @@ function getNodePosition(node) {
   var y = position.y;
   return { x: x, y: y };
 }
+
 
 
 
