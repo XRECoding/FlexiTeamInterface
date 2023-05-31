@@ -2,19 +2,18 @@
     var $ = go.GraphObject.make;
 
     // Definiere das Layout für das Diagramm
-    var layout = $(go.TreeLayout, { angle: 0, layerSpacing: 40 });
     var myDiagram = 
         $(go.Diagram, "myDiagramDiv", {
             // Definiere verschiedene Eigenschaften für das Diagramm-Modell
             isReadOnly: true,
             // Generiere das Diagramm als Horizontaler Baum.
-            layout: layout,
+            layout: $(go.TreeLayout, { angle: 0, layerSpacing: 40 }),
             // Setze das Padding für das Diagramm
             padding: new go.Margin(20) // Beispielwert für das Padding
         }
     );
-
     
+
 
     // Definiere Link-Templates, um die Verbindungen des Diagramms optisch anzupassen.
     // Durch die Verwendung eines separaten Link-Templates können wir das Aussehen der
@@ -138,9 +137,9 @@
 
 
     // Definiere die Gruppen-Templates
+    
     myDiagram.groupTemplateMap.add("Gruppe1", gruppe1);
     myDiagram.groupTemplateMap.add("Gruppe2", gruppe2);
-
 
 
     // Hierbei handelt es sich um Testdaten. Die tatsächlichen Daten müssen zu einem späteren Zeitpunkt
@@ -172,18 +171,20 @@
     // Wir prüfen auch, ob ein Logik-Gatter platziert werden muss. Sobald ein Knoten für die Tiefe platziert wurde,
     // kehren wir in der Rekursion zurück und erstellen die Verbindungen zu den zuvor platzierten Knoten.
 
+
     function dfs(nodes, currentNodeId) {
         const currentNode = nodes[currentNodeId-1];
         const nextNodes = currentNode.next;
         
         // Setze die Knoten auf das Diagramm-Modell innerhalb einer Gruppe.
         myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: (currentNode.problem) ? "Gruppe2" : "Gruppe1"});
-
+        
         // Erstelle den Diagramm-Knoten für Task, Data und Staff
         myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.data, category: "Ellipse", group: currentNodeId + "group"});
         myDiagram.model.addNodeData({key: currentNodeId, text: currentNode.task, category: "Rectangle", group: currentNodeId + "group"});
         myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.staff, category: "Ellipse", group: currentNodeId + "group"});
         // Fügen Sie einen Link mit individuellen Eigenschaften zum Diagramm hinzu, einschließlich "isLayoutPositioned"
+        
         myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, color: "red", category: "template1"});
         myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, color: "red", category: "template1"});
 
@@ -246,44 +247,7 @@
                 viewportHeight / zoomFactor
             ));
         }
-
-
-        // var lineElement = new go.Node(go.Panel.Auto);
-        // myDiagram.add(lineElement);
-
-        // // Erstellen Sie die Shape, um die Linie darzustellen
-        // var lineShape = new go.Shape();
-        // lineShape.stroke = "black"; // Setzen Sie die Farbe der Linie
-        // lineShape.strokeWidth = 2; // Setzen Sie die Linienstärke
-
-        // // Fügen Sie die Shape zum Diagrammelement hinzu
-        // lineElement.add(lineShape);
-
-        // // Setzen Sie die Start- und Endkoordinaten der Linie
-        // var a = getNodePosition(myDiagram.findNodeForKey("1staff"));
-        // var b = getNodePosition(myDiagram.findNodeForKey("1data"));
-        // var startX = a.x;
-        // var startY = a.y;
-        // var endX = b.x;
-        // var endY = b.y;
-
-        // // Aktualisieren Sie die Geometrie der Shape basierend auf den Start- und Endkoordinaten
-        // var geometry = new go.Geometry(go.Geometry.Line);
-        // geometry.startX = startX;
-        // geometry.startY = startY;
-        // geometry.endX = endX;
-        // geometry.endY = endY;
-        // lineShape.geometry = geometry;
     });
-
-function getNodePosition(node) {
-  var position = node.position;
-  var x = position.x;
-  var y = position.y;
-  return { x: x, y: y };
-}
-
-
 
 
 </script>
