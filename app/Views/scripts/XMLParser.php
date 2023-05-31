@@ -1,6 +1,8 @@
 <!-- https://www.w3schools.com/xml/xml_parser.asp -->
 
 <script>
+
+loadXMLDoc();
     function loadXMLDoc() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
@@ -22,9 +24,17 @@
         var x = xmlDoc.getElementById("W02");
 
         // Iterate over all occurrences
-        for (elem of x.querySelectorAll("[c=TaskSemantic]")){
-            console.log(elem.firstElementChild.getAttribute("v"));
+        // for (elem of x.querySelectorAll("[c=TaskSemantic]")){
+        //     console.log(elem.firstElementChild.getAttribute("v"));
+        // }
+        // console.log((x.childNodes[1]).childNodes.length);
+        for (elem of (x.childNodes[3]).childNodes){
+            console.log(elem);
         }
+
+        // console.log(x.querySelectorAll("[c=ResourceSemantic]").length);
+        // console.log(x.querySelectorAll("[c=TaskSemantic]").length);
+        // console.log(x.querySelectorAll("[c=DataSemantic]").length);
     }
     
 </script>
