@@ -8,11 +8,18 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 
-        <!-- Go JS Library --!>
+        <!-- Go JS Library -->
         <script src="<?php echo base_url('JavaScript/GoJS/release/go-debug.js')?>" ></script>
         
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Our CSS -->
+        <link href="<?php echo base_url('CSS/Index.css')?>" rel="stylesheet">
+
+        <!-- Drag & Drop JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     </head>
 

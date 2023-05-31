@@ -13,16 +13,11 @@
             Sidebar
         </div>
         <div class="col h-100">
-            Workflow
-
-
-
+            <!-- The Diagram for the Workflow -->
             <div id="myDiagramDiv" style="border: solid 1px blue; width:1200px; height:450px"></div>
-
-<!--            <div id="diagramDiv" style="border: solid 1px blue; width:1200px; height:450px"></div>-->
-
-
         </div>
     </div>
 </div>
-        
+
+
+
