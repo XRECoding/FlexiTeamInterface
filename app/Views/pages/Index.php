@@ -71,9 +71,12 @@
         <div class="col-2 h-100 border-end">
             Sidebar
         </div>
-        <div class="col h-100 p-0 m-0">
-            <div id="myDiagramDiv" class="h-100 w-100"></div>
+        <div class="col h-100">
+            <!-- The Diagram for the Workflow -->
+            <div id="myDiagramDiv" style="border: solid 1px blue; width:1200px; height:450px"></div>
         </div>
     </div>
 </div>
-        
+
+
+

@@ -33,6 +33,7 @@
                         <!-- Right part of Header Row -->
                         <!-- Dropdown -->
                         <div class="col h-100 border-bottom">
+
 <!--                            <select class="form-select" id="procedureDropdown" aria-label="Default select example" style="width: 40%"></select>-->
                         </div>
 
@@ -61,6 +62,7 @@
 <!--                                </div>-->
 <!--                            </nav>-->
 <!--                        </div>-->
+
 
                         <div class="col h-100 border-bottom ml-auto col-auto">
                             <!-- Save Button -->
