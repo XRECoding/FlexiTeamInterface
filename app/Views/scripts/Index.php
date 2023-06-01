@@ -1,4 +1,16 @@
 <script>
+
+    var data = loadCSV();
+
+    var foundObject = data.find(function(obj) {
+        return obj.workflowId === "W01";
+    });
+
+
+    console.log(data);
+    console.log(foundObject);
+
+
     $("tbody").sortable({connectWith:"tbody"});
 
     // Get the modal

@@ -9,8 +9,9 @@ class Index extends BaseController {
         echo view('templates/Header', $data);
         echo view('pages/Index');
         echo view('pages/Modals/Index');
+        echo view('scripts/CSVParser');
+
         echo view('scripts/Index');
-        echo view('scripts/XMLParser');
         echo view('templates/Footer');
     }
 }
