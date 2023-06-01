@@ -1,0 +1,35 @@
+/* Basic CSS for scrollable table*/
+.tableFixHead {
+    overflow: auto;
+    height: 75%;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    /*  For better Drag & Drop Functionality
+        This makes it easier to drop into an empty table */
+    padding:5px 0;
+    min-width:100px;
+}
+th, td {
+    padding: 8px 16px;
+}
+th     {
+    background:#eee;
+}
+
+/*table tr td {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/* Color setting for the critical procedures in the Dropdown*/
+option.critical {
+    background-color: #a24545;
+}

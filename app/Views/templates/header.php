@@ -15,6 +15,13 @@
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+        <!-- Our CSS -->
+        <link href="<?php echo base_url('CSS/Index.css')?>" rel="stylesheet">
+
+        <!-- Drag & Drop JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
     </head>
 
     <body style="height:100%">
