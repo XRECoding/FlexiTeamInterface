@@ -8,7 +8,7 @@
 
 
     console.log(data);
-    console.log(foundObject);
+    console.log(foundObject.subTasks);
 
 
     $("tbody").sortable({connectWith:"tbody"});
@@ -247,10 +247,13 @@
     function createNodeTemplate(shape) {
         return $(go.Node, "Auto",
             { width: 120, height: 80 },
-            $(go.Shape, shape, {
-                fill: "white", // Die Hintergrundfarbe des Knotens ist weiß.
-                strokeWidth: 2 // Die Linienstärke der Form beträgt 2 Pixel.
-            }),
+            $(go.Shape, shape, 
+                {
+                    fill: "white", // Die Hintergrundfarbe des Knotens ist weiß.
+                    strokeWidth: 2 // Die Linienstärke der Form beträgt 2 Pixel.
+                },
+                new go.Binding("fill", "color") // Binden Sie die "fill"-Eigenschaft des Shapes an die "color"-Eigenschaft des Datenobjekts
+            ),
             $(go.TextBlock, {
                     margin: 10,
                     wrap: go.TextBlock.WrapFit
@@ -263,6 +266,8 @@
     // Definiere die Knoten-Templates für verschiedene Kategorien
     myDiagram.nodeTemplateMap.add("Rectangle", createNodeTemplate("Rectangle"));
     myDiagram.nodeTemplateMap.add("Ellipse", createNodeTemplate("Ellipse"));
+    myDiagram.nodeTemplateMap.add("Diamond", createNodeTemplate("Diamond"));
+
 
 
 
@@ -285,7 +290,26 @@
                 // Der Knoten-Text wird an das "text"-Attribut gebunden.
                 new go.Binding("text", "text"))
         )
-    );
+    );myDiagram.nodeTemplateMap.add("Circle",
+  $(go.Node, "Auto",
+    { width: 80, height: 80 },
+    $(go.Shape, "Circle",
+      {
+        fill: "white",
+        strokeWidth: 2
+      },
+      new go.Binding("fill", "color") // Binden Sie die "fill"-Eigenschaft des Shapes an die "color"-Eigenschaft des Datenobjekts
+    ),
+    $(go.TextBlock,
+      {
+        margin: 10,
+        wrap: go.TextBlock.WrapFit
+      },
+      new go.Binding("text", "text")
+    )
+  )
+);
+
 
 
     // Funktion zur Erstellung eines Gruppen-Templates. Alle Gruppen verhalten sich gleich,
@@ -358,31 +382,41 @@
         { id: 15, data:"o", staff:"15", next: [], task:"Test Data 7",problem:false},
     ];
 
-    dfs(nodes, 1);
+    var foundObject = data.find(function(obj) {
+        return obj.workflowId === "W01";
+    });
+
+    console.log(foundObject);
+    
+    dfs(foundObject.subTasks, 1, "blue");
 
 
     // Rekursive Funktion zur Generierung des Diagramms. Zuerst gehen wir in die Tiefe, um die Knoten zu platzieren.
     // Wir prüfen auch, ob ein Logik-Gatter platziert werden muss. Sobald ein Knoten für die Tiefe platziert wurde,
     // kehren wir in der Rekursion zurück und erstellen die Verbindungen zu den zuvor platzierten Knoten.
 
-
-    function dfs(nodes, currentNodeId) {
+    function dfs(nodes, currentNodeId, nodeColore) {
         const currentNode = nodes[currentNodeId-1];
-        const nextNodes = currentNode.next;
+        const nextNodes = currentNode.nextTaskId;
+
+        console.log(nodeColore);
 
         // Setze die Knoten auf das Diagramm-Modell innerhalb einer Gruppe.
-        myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: (currentNode.problem) ? "Gruppe2" : "Gruppe1"});
+        // myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: (currentNode.problem) ? "Gruppe2" : "Gruppe1"});
+        myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: "Gruppe1"});
+
+        if (currentNode.tasks === "Surgery") {nodeColore = "pink"};
 
         // Erstelle den Diagramm-Knoten für Task, Data und Staff
-        myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.data, category: "Ellipse", group: currentNodeId + "group"});
-        myDiagram.model.addNodeData({key: currentNodeId, text: currentNode.task, category: "Rectangle", group: currentNodeId + "group"});
-        myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.staff, category: "Ellipse", group: currentNodeId + "group"});
+        myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.consumedData, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
+        myDiagram.model.addNodeData({key: currentNodeId, text: currentNode.tasks, category: "Rectangle", group: currentNodeId + "group", color: nodeColore});
+        myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.resources, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
         // Fügen Sie einen Link mit individuellen Eigenschaften zum Diagramm hinzu, einschließlich "isLayoutPositioned"
 
-        myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, color: "red", category: "template1"});
-        myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, color: "red", category: "template1"});
+        myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, category: "template1"});
+        myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, category: "template1"});
 
-
+        if (currentNode.tasks === "Surgery") {nodeColore = "green"};
 
         if (nextNodes.length > 1) {
             myDiagram.model.addNodeData({key: (currentNodeId + "gate"), text: "AND", category: "Circle"});
@@ -390,7 +424,7 @@
         }
 
         for (let i = 0; i < nextNodes.length; i++) {
-            dfs(nodes, nextNodes[i]);
+            dfs(nodes, parseInt(nextNodes[i]), nodeColore);
 
             // Setze die Verbindungen für die Diagramm-Knoten
             if (nextNodes.length > 1) {
