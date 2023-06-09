@@ -1,24 +1,61 @@
 <script>
     $("tbody").sortable({connectWith:"tbody"});
 
+    // keeping track of the id of the clicked node
+    let clickedNodeId = null;
+
     // Get the modal
     var modal = document.getElementById("myModal");
 
     // Adding closing functionality to modal close button
     document.getElementById("modalClose").onclick = function () {
+        console.log("Close");
         modal.style.display = "none";
     }
 
-    // // Sidebar tab logic
-    // const triggerTabList = document.querySelectorAll('#myTab button')
-    // triggerTabList.forEach(triggerEl => {
-    //     const tabTrigger = new bootstrap.Tab(triggerEl)
-    //
-    //     triggerEl.addEventListener('click', event => {
-    //         event.preventDefault()
-    //         tabTrigger.show()
-    //     })
-    // })
+    // Adding save functionality to modal save button
+    document.getElementById("saveButton").onclick = function () {
+        // saving resources
+        var table = document.getElementById("main-resourceTable");
+        var writeString = "";
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            writeString += row.cells[0].textContent + ", ";
+        }
+        writeString =   writeString.substr(0, writeString.length-2);
+
+        var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
+        myDiagram.select(clickedNode);
+        myDiagram.model.commit(m => {
+            m.set(clickedNode.data, "text", writeString);
+        }, "changed text");
+
+        // also writing into the array to make a save state possible
+        nodes[clickedNodeId-1].data = writeString;
+
+
+        // saving staff
+        table = document.getElementById("main-staffTable");
+        writeString = "";
+        for (var i = 0, row; row = table.rows[i]; i++) {
+            writeString += row.cells[1].textContent + ", ";
+        }
+        writeString =   writeString.substr(0, writeString.length-2);
+
+        clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+        myDiagram.select(clickedNode);
+        myDiagram.model.commit(m => {
+            m.set(clickedNode.data, "text", writeString);
+        }, "changed text");
+
+        // also writing into the array to make a save state possible
+        nodes[clickedNodeId-1].staff = writeString;
+
+
+        // var test = clickedNode.findSubGraphParts();
+        console.log(nodes);
+
+        modal.style.display = "none";
+    }
 
     // Sidebar Search for Staff
     document.getElementById("staffInput").onkeyup = function resourceSearch () {
@@ -88,33 +125,38 @@
         option2.text = "test";
         option2.classList.add("critical");
         select.add(option2);
+    };
 
+    // Adding Sidebar tabbing logic to main content
+    document.getElementById("staff-tab").onclick = function () {
+        document.getElementById("staff-tab-pane-2").classList.add("active");
+        document.getElementById("staff-tab-pane-2").classList.add("show");
 
-        // Adding resources to the Sidebar
-        const resources = ["Stretcher", "Stethoscope", "Needle", "Tape", "Scissors"];
-        const resourceNumbers = ["1", "2", "3", "4", "5"];
+        document.getElementById("resource-tab-pane-2").classList.remove("active");
+        document.getElementById("resource-tab-pane-2").classList.remove("show");
+    }
 
-        var table = document.getElementById("resourceTable");
-        for (let i = 0; i < resources.length; i++) {
-            var row = table.insertRow();
-            var cellFirst = row.insertCell(0);
-            var cellSecond = row.insertCell(1);
-            cellFirst.innerText = resources[i];
-            cellSecond.innerText = resourceNumbers[i];
+    document.getElementById("resource-tab").onclick = function () {
+        document.getElementById("staff-tab-pane-2").classList.remove("active");
+        document.getElementById("staff-tab-pane-2").classList.remove("show");
+
+        document.getElementById("resource-tab-pane-2").classList.add("active");
+        document.getElementById("resource-tab-pane-2").classList.add("show");
+    }
+
+    function sidebarFill(){
+        // removing all old rows
+        // its probably more efficient to create a new tbody element und replace the old one
+        var table = document.getElementById("staffTable");
+        while(table.hasChildNodes()){
+            table.removeChild(table.firstChild);
         }
 
-        // Adding resources to the Main Pane
-        const resourcesMain = ["Stethoscope", "Tape", "Scissors"];
-        const resourceNumbersMain = ["1", "2", "3"];
-
-        var table = document.getElementById("main-resourceTable");
-        for (let i = 0; i < resourcesMain.length; i++) {
-            var row = table.insertRow();
-            var cellFirst = row.insertCell(0);
-            var cellSecond = row.insertCell(1);
-            cellFirst.innerText = resourcesMain[i];
-            cellSecond.innerText = resourceNumbersMain[i];
+        table = document.getElementById("resourceTable");
+        while(table.hasChildNodes()){
+            table.removeChild(table.firstChild);
         }
+
 
         // Adding staff to the Sidebar
         const staff = ["Octavianus Vladimir", "Pellam Bozena", "Nadia Fallon", "Afzal Columban", "Shyama Ludmilla", "Viktoria Long", "Pearlie Kari", "Eloise Dina"
@@ -141,40 +183,20 @@
             cellSecond.innerText = staff[i];
         }
 
-        // Adding staff to the Main Pane
-        const staffMain = ["Evert Irmengard", "Sneha Lea", "Spartak Xochiquetzal", "Addie Alberto", "Maxim Cassarah", "Karl Barbara"];
-        const jobsMain = ["Doctor", "Doctor", "Doctor", "Nurse", "Nurse", "Nurse"];
-        const replace = [true, false, false, false, true, false];
 
-        table = document.getElementById("main-staffTable");
-        for (let i = 0; i < staffMain.length; i++) {
+        // Adding resources to the Sidebar
+        const resources = ["Stretcher", "Stethoscope", "Needle", "Tape", "Scissors"];
+        const resourceNumbers = ["1", "2", "3", "4", "5"];
+
+        table = document.getElementById("resourceTable");
+        for (let i = 0; i < resources.length; i++) {
             var row = table.insertRow();
             var cellFirst = row.insertCell(0);
             var cellSecond = row.insertCell(1);
-            if (replace[i]){ cellSecond.setAttribute("style", "text-decoration: line-through; text-decoration-thickness: 3px");}
-            cellFirst.innerText = jobsMain[i];
-            cellSecond.innerText = staffMain[i];
+            cellFirst.innerText = resources[i];
+            cellSecond.innerText = resourceNumbers[i];
         }
-    };
-
-    // Adding Sidebar tabbing logic to main content
-    document.getElementById("staff-tab").onclick = function () {
-        document.getElementById("staff-tab-pane-2").classList.add("active");
-        document.getElementById("staff-tab-pane-2").classList.add("show");
-
-        document.getElementById("resource-tab-pane-2").classList.remove("active");
-        document.getElementById("resource-tab-pane-2").classList.remove("show");
     }
-
-    document.getElementById("resource-tab").onclick = function () {
-        document.getElementById("staff-tab-pane-2").classList.remove("active");
-        document.getElementById("staff-tab-pane-2").classList.remove("show");
-
-        document.getElementById("resource-tab-pane-2").classList.add("active");
-        document.getElementById("resource-tab-pane-2").classList.add("show");
-    }
-
-
 
 
     // -----------------------------------------------------------------------------------------------------------
@@ -303,7 +325,57 @@
                 layout: $(go.LayeredDigraphLayout, { direction: 0 }),
                 click: function(e, group) {
                     // Behandle den Klick auf die Gruppe hier
-                    console.log("Gruppe wurde geklickt: " + group.data.key);
+                    // console.log("Gruppe wurde geklickt: " + group.data.key);
+
+                    // var clickedNode = myDiagram.findNodeForKey(group.data.key);
+
+                    console.log(nodes);
+
+                    // set the id of the clicked node
+                    clickedNodeId = group.data.key.replace("group", "");   // Todo find better solution. eg working with GoJS groups
+
+
+                    // adding staff & resources to the sidebar table
+                    sidebarFill();
+
+                    // Adding resources to the Main Pane
+                    var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
+                    const resourcesMain = clickedNode.data.text.split(", ");
+                    const resourceNumbersMain = [];     // Todo
+
+                    var table = document.getElementById("main-resourceTable");
+                    while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                    for (let i = 0; i < resourcesMain.length; i++) {
+                        var row = table.insertRow();
+                        var cellFirst = row.insertCell(0);
+                        var cellSecond = row.insertCell(1);
+                        cellFirst.innerText = resourcesMain[i];
+                        cellSecond.innerText = resourceNumbersMain[i];
+                    }
+
+                    // Adding staff to the Main Pane
+                    var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+                    const staffMain = clickedNode.data.text.split(", ");
+                    const jobsMain = [];    // TODO
+                    const replace = [true];     // TODO
+
+                    table = document.getElementById("main-staffTable");
+                    while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                    for (let i = 0; i < staffMain.length; i++) {
+                        var row = table.insertRow();
+                        var cellFirst = row.insertCell(0);
+                        var cellSecond = row.insertCell(1);
+                        if (replace[i]){ cellSecond.setAttribute("style", "text-decoration: line-through; text-decoration-thickness: 3px");}
+                        cellFirst.innerText = jobsMain[i];
+                        cellSecond.innerText = staffMain[i];
+                    }
+
+                    // changing the progress bar
+                    var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
+                    document.getElementById("progressBar").innerHTML = clickedNode.data.text;
+
+
+
                     modal.style.display = "block";
                 }
             },
@@ -332,15 +404,15 @@
         { id: 1, data:"a", staff:"1", next: [2], task:"Patient preparation", problem:false},
         { id: 2, data:"b", staff:"2", next: [3], task:"Surgery room preparation",problem:false},
         { id: 3, data:"c", staff:"3", next: [4], task:"Transport to OT",problem:false},
-        { id: 4, data:"d", staff:"4", next: [5], task:"Anesthesia",problem:false},
+        { id: 4, data:"d", staff:"4", next: [5], task:"Anesthesia",problem:true},
         { id: 5, data:"e", staff:"5", next: [6, 7], task:"Surgery",problem:false},
         { id: 6, data:"f", staff:"6", next: [8], task:"Transport to post-surgery room",problem:false},
         { id: 7, data:"g", staff:"7", next: [9], task:"Cleaning surgery room",problem:false},
-        { id: 8, data:"h", staff:"8", next: [10, 11, 13], task:"Transport to postpartum room",problem:true},
+        { id: 8, data:"TestData", staff:"TestStaff", next: [10, 11, 13], task:"Transport to postpartum room",problem:true},
         { id: 9, data:"i", staff:"9", next: [12, 14], task:"Test Data 1",problem:false},
         { id: 10, data:"j", staff:"10", next: [], task:"Test Data 2",problem:false},
         { id: 11, data:"k", staff:"11", next: [], task:"Test Data 3",problem:false},
-        { id: 12, data:"l", staff:"12", next: [], task:"Test Data 4",problem:false},
+        { id: 12, data:"l", staff:"12", next: [], task:"Test Data 4",problem:true},
         { id: 13, data:"m", staff:"13", next: [15], task:"Test Data 5",problem:false},
         { id: 14, data:"n", staff:"14", next: [], task:"Test Data 6",problem:false},
         { id: 15, data:"o", staff:"15", next: [], task:"Test Data 7",problem:false},

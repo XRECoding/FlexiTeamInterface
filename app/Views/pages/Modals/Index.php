@@ -65,7 +65,7 @@
 
                         <div class="col h-100 border-bottom ml-auto col-auto">
                             <!-- Save Button -->
-                            <button type="button" class="btn btn-outline-dark">
+                            <button type="button" class="btn btn-outline-dark" id="saveButton">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
                                 Save
                             </button>
@@ -164,7 +164,7 @@
 
                             <!-- Progress Bar -->
                             <div class="progress" style="height: 2%;">
-                                <div class="progress-bar" role="progressbar" style="width: 100%; background-color: mediumpurple; font-size: 140%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Surgery</div>
+                                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 100%; background-color: mediumpurple; font-size: 140%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Surgery</div>
                             </div>
 
                             <div class="row" style="margin-left: inherit; margin-right: inherit; margin-top: 3.85%; height: 77%" >
@@ -224,60 +224,6 @@
                                     Workflow Ausschnitt Platzhalter
 
 
-
-
-
-
-
-                                    <h2>Table 1:</h2>
-                                    <div id="table1" >
-                                        <table>
-                                            <tbody>
-                                            <tr>
-                                                <td>Table 1 First Row</td>
-                                                <td>Table 1 First Row</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Table 1 Second Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Table 2 First Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Table 2 Second Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <hr/>
-
-
-                                    <h2>Table 2:</h2>
-                                    <div id="table2">
-                                        <table>
-                                            <tbody>
-                                            <tr>
-                                                <td>Table 2 First Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Table 2 Second Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Table 2 First Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Table 2 Second Row</td>
-                                                <td>Table 1 Second Row</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
 
 
 
