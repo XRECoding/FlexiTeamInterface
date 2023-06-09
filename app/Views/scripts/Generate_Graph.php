@@ -184,8 +184,10 @@
             });
                 
             dfs(foundObject.subTasks, 1, "blue");
+ 
+            console.log("HELLO");
+            console.log(foundObject.subTasks);
 
-            // myDiagram.zoomToFit(myDiagram.documentBounds);
 
         }
 
@@ -198,8 +200,7 @@
             const nextNodes = currentNode.nextTaskId;
 
             // Setze die Knoten auf das Diagramm-Modell innerhalb einer Gruppe.
-            // myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: (currentNode.problem) ? "Gruppe2" : "Gruppe1"});
-            myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: "Gruppe1"});
+            myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: (currentNode.problem === "yes") ? "Gruppe2" : "Gruppe1" });
 
             if (currentNode.tasks === "Surgery") {nodeColore = "pink"};
 
