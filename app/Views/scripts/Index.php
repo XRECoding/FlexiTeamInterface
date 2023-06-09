@@ -25,6 +25,12 @@
         modal.style.display = "none";
     }
 
+    // ----------------------------------------------------------
+    document.getElementById("test").onclick = function () {
+        modal.style.display = "block";
+    }
+    // ----------------------------------------------------------
+
     // Adding save functionality to modal save button
     document.getElementById("saveButton").onclick = function () {
         // saving resources

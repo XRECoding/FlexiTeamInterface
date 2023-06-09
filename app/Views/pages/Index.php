@@ -65,6 +65,10 @@
             <button type="button" class="btn btn-primary">Undo</button>
         </li>
 
+            <li class="nav-item" style="margin-right: 25px;">
+                <button type="button" id="test" class="btn btn-primary">Undo</button>
+            </li>
+
 
         <!-- <li class="nav-item">
             <div class="btn-group mr-2" role="group" aria-label="First group">
