@@ -31,6 +31,7 @@ th     {
 
 /* Color setting for the critical procedures in the Dropdown*/
 option.critical {
-    background-color: #a24545;
+    /*background-color: #a24545;*/
+    background-color: #ff0000;
 }
 
