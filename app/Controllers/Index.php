@@ -22,6 +22,7 @@ class Index extends BaseController {
         echo view('pages/Modals/Index');
         echo view('scripts/CSVParser');
         echo view('scripts/Generate_Graph.php');
+        echo view('scripts/index.php');
         echo view('modals/legend');
         echo view('templates/Footer');
     }
