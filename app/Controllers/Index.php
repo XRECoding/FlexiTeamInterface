@@ -10,8 +10,8 @@ class Index extends BaseController {
         echo view('pages/Index');
         echo view('pages/Modals/Index');
         echo view('scripts/CSVParser');
-
-        echo view('scripts/Index');
+        echo view('scripts/Generate_Graph.php');
+        echo view('modals/legend');
         echo view('templates/Footer');
     }
 }
