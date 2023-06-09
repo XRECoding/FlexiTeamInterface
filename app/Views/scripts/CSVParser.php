@@ -45,7 +45,8 @@
                 dataDescription: line[11],
                 producedData: line[12],
                 resources: line[13],
-                resourceQualification: line[14]
+                resourceQualification: line[14],
+                problem: line[15]
             });
         }
 
