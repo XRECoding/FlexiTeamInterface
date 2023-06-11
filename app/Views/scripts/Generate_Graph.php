@@ -35,7 +35,56 @@
                 }
             );
 
+        // Adding save functionality to modal save button
+        document.getElementById("saveButton").onclick = function () {
+            // saving resources
+            var dropdown = document.getElementById("inputGroupSelect01");
+            var workflowID = dropdown.options[dropdown.selectedIndex].value;
 
+            var table = document.getElementById("main-resourceTable");
+            var writeString = "";
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                writeString += row.cells[0].textContent + "/";
+            }
+            writeString =   writeString.substr(0, writeString.length-2);
+
+            var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
+            myDiagram.select(clickedNode);
+            myDiagram.model.commit(m => {
+                m.set(clickedNode.data, "text", writeString);
+            }, "changed text");
+
+            // also writing into the array to make a save state possible
+            // nodes[clickedNodeId-1].data = writeString;
+            // console.log(data[workflowID].subTasks[clickedNodeId-1].consumedData);
+            // console.log(clickedNodeId);
+            data[workflowID].subTasks[clickedNodeId-1].consumedData = writeString;
+
+
+            // saving staff
+            table = document.getElementById("main-staffTable");
+            writeString = "";
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                writeString += row.cells[1].textContent + "/";
+            }
+            writeString =   writeString.substr(0, writeString.length-2);
+
+            clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+            myDiagram.select(clickedNode);
+            myDiagram.model.commit(m => {
+                m.set(clickedNode.data, "text", writeString);
+            }, "changed text");
+
+            // also writing into the array to make a save state possible
+            // nodes[clickedNodeId-1].staff = writeString;
+            data[workflowID].subTasks[clickedNodeId-1].resources = writeString;
+
+
+            // var test = clickedNode.findSubGraphParts();
+            // console.log(nodes);
+
+            modal.style.display = "none";
+        }
 
         // Definiere Link-Templates, um die Verbindungen des Diagramms optisch anzupassen.
         // Durch die Verwendung eines separaten Link-Templates können wir das Aussehen der
@@ -152,7 +201,65 @@
                     layout: $(go.LayeredDigraphLayout, { direction: 0 }),
                     click: function(e, group) {
                         // Behandle den Klick auf die Gruppe hier
-                        console.log("Gruppe wurde geklickt: " + group.data.key);
+                        // console.log("Gruppe wurde geklickt: " + group.data.key);
+
+                        // var clickedNode = myDiagram.findNodeForKey(group.data.key);
+
+                        // console.log(nodes);
+
+                        // set the id of the clicked node
+                        clickedNodeId = group.data.key.replace("group", "");   // Todo find better solution. eg working with GoJS groups
+
+
+                        // adding staff & resources to the sidebar table
+                        sidebarFill();
+
+                        // Adding resources to the Main Pane
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
+                        const resourcesMain = clickedNode.data.text.split(", ");
+                        const resourceNumbersMain = [];     // Todo
+
+                        var table = document.getElementById("main-resourceTable");
+                        while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                        for (let i = 0; i < resourcesMain.length; i++) {
+                            var row = table.insertRow();
+                            var cellFirst = row.insertCell(0);
+                            var cellSecond = row.insertCell(1);
+                            cellFirst.innerText = resourcesMain[i];
+                            cellSecond.innerText = resourceNumbersMain[i];
+                        }
+
+                        // Adding staff to the Main Pane
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+                        const staffMain = clickedNode.data.text.split(", ");
+                        const jobsMain = [];    // TODO
+                        const replace = [true];     // TODO
+
+                        table = document.getElementById("main-staffTable");
+                        while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                        for (let i = 0; i < staffMain.length; i++) {
+                            var row = table.insertRow();
+                            var cellFirst = row.insertCell(0);
+                            var cellSecond = row.insertCell(1);
+                            if (replace[i]){ cellSecond.setAttribute("style", "text-decoration: line-through; text-decoration-thickness: 3px");}
+                            cellFirst.innerText = jobsMain[i];
+                            cellSecond.innerText = staffMain[i];
+                        }
+
+                        // changing the progress bar
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
+                        document.getElementById("progressBar").innerHTML = clickedNode.data.text;
+
+                        // adding the selected option to the modal dropdown
+                        var dropdown = document.getElementById("inputGroupSelect01");
+                        var dropdownText = dropdown.options[dropdown.selectedIndex].text;
+                        var option = document.createElement('option');
+                        option.text = dropdownText;
+                        dropdown = document.getElementById("disabledDropdown");
+                        dropdown.add(option);
+                        dropdown.disabled = true;
+
+
                         modal.style.display = "block";
                     }
                 },
@@ -185,8 +292,8 @@
                 
             dfs(foundObject.subTasks, 1, "blue");
  
-            console.log("HELLO");
-            console.log(foundObject.subTasks);
+            // console.log("HELLO");
+            // console.log(foundObject.subTasks);
 
 
         }
@@ -277,5 +384,7 @@
 
 
     init("W01");
+
+
 
 </script>
