@@ -1,7 +1,12 @@
+
+
 <!-- The Popup Modal -->
 <div id="myModal" class="modal" data-keyboard="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
+
+
+
             <div class="modal-body">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
@@ -58,6 +63,7 @@
                                         Close
                                     </button>
                                 </li>
+
 
                             </ul>
 
@@ -206,14 +212,15 @@
                                     </div>
 
                                 </div>
-                                <div class="col h-100 border-end border-top border-bottom">
+
+                                <div id="help" class="col h-100 border-end border-top border-bottom">
 
                                     <br>
 
                                     Workflow Ausschnitt Platzhalter
 
 
-
+                                    <!-- <div id="help"></div> -->
 
 
 

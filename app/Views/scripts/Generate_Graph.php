@@ -261,6 +261,7 @@
 
 
                         modal.style.display = "block";
+                        initSub(staffMain, resourcesMain)
                     }
                 },
                 $(go.Panel, "Auto",
