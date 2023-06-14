@@ -118,7 +118,7 @@
         var test = data[i];
         var option = document.createElement('option');
         option.text = test.workflowId;      // TOdo should be Type
-        // option.value = i;
+        option.value = i;
 
         for (let j = 0; j < data[i].subTasks.length; j++) {
             if (data[i].subTasks[j].problem == "yes"){

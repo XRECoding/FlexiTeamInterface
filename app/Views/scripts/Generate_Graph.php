@@ -40,13 +40,14 @@
             // saving resources
             var dropdown = document.getElementById("inputGroupSelect01");
             var workflowID = dropdown.options[dropdown.selectedIndex].value;
+            console.log(workflowID);
 
             var table = document.getElementById("main-resourceTable");
             var writeString = "";
             for (var i = 0, row; row = table.rows[i]; i++) {
                 writeString += row.cells[0].textContent + "/";
             }
-            writeString =   writeString.substr(0, writeString.length-2);
+            writeString =   writeString.substr(0, writeString.length-1);
 
             var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
             myDiagram.select(clickedNode);
@@ -67,7 +68,7 @@
             for (var i = 0, row; row = table.rows[i]; i++) {
                 writeString += row.cells[1].textContent + "/";
             }
-            writeString =   writeString.substr(0, writeString.length-2);
+            writeString =   writeString.substr(0, writeString.length-1);
 
             clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
             myDiagram.select(clickedNode);
@@ -216,7 +217,7 @@
 
                         // Adding resources to the Main Pane
                         var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
-                        const resourcesMain = clickedNode.data.text.split(", ");
+                        const resourcesMain = clickedNode.data.text.split("/");
                         const resourceNumbersMain = [];     // Todo
 
                         var table = document.getElementById("main-resourceTable");
@@ -231,7 +232,7 @@
 
                         // Adding staff to the Main Pane
                         var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
-                        const staffMain = clickedNode.data.text.split(", ");
+                        const staffMain = clickedNode.data.text.split("/");
                         const jobsMain = [];    // TODO
                         const replace = [true];     // TODO
 

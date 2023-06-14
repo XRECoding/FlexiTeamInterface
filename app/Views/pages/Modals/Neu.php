@@ -14,13 +14,13 @@
 
 
                                 <li class="nav-item">
-                                    <button class="btn btn-outline-dark" type="submit">Save</button>
+                                    <button class="btn btn-outline-dark" type="submit" disabled>Save</button>
                                 </li>
                                 <li class="nav-item">
-                                    <button class="btn btn-outline-dark" type="submit">Submit</button>
+                                    <button class="btn btn-outline-dark" type="submit" disabled>Submit</button>
                                 </li>
                                 <li class="nav-item">
-                                    <button class="btn btn-outline-dark" type="submit">Redo</button>
+                                    <button class="btn btn-outline-dark" type="submit" disabled>Redo</button>
                                 </li>
 
                                 <li class="nav-item" style="padding-right: 20px;"></li>
@@ -41,6 +41,9 @@
                                     </select>
                                 </div>
                                 <li class="nav-item" style="padding-right: 20px;"></li>
+
+                            </ul>
+                            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
 
 
                                 <li>
@@ -71,7 +74,7 @@
 
                 <div class="container-fluid h-100">
                     <div class="row h-100" >
-                        <div class="col-2 h-100 border" style="background-color: #F8F9FA;">
+                        <div class="col-3 col-xl-2 border" style="background-color: #F8F9FA;">
                             <br>
                             <!-- Tab Nav bar -->
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
