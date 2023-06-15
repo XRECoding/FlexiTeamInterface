@@ -148,6 +148,12 @@
         document.getElementById("resource-tab-pane-2").classList.add("show");
     }
 
+    // add redo logic to redo button
+    document.getElementById("redoButton").onclick = function () {
+        location.reload();
+        // return false;
+    }
+
 
 
     function sidebarFill(){

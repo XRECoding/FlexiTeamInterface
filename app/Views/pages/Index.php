@@ -15,7 +15,7 @@
                     <button class="btn btn-outline-dark" type="submit">Submit</button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-outline-dark" type="submit">Redo</button>
+                    <button class="btn btn-outline-dark" id="redoButton" type="submit">Redo</button>
                 </li>
 
                 <li class="nav-item" style="padding-right: 20px;"></li>
