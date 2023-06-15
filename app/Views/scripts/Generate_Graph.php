@@ -238,6 +238,9 @@
 
                         table = document.getElementById("main-staffTable");
                         while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+
+
+
                         for (let i = 0; i < staffMain.length; i++) {
                             var row = table.insertRow();
                             var cellFirst = row.insertCell(0);

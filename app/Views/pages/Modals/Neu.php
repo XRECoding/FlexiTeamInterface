@@ -23,7 +23,7 @@
 <!--                                    <button class="btn btn-outline-dark" type="submit" style="white-space: nowrap;" disabled>Redo</button>-->
 <!--                                </li>-->
 <!---->
-<!--                                <li class="nav-item" style="padding-right: 20px;"></li>-->
+<!--                                <li class="nav-item" style="padding-right: 410px;"></li>-->
 
 
                                 <div class="input-group">

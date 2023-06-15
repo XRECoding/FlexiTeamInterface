@@ -28,6 +28,7 @@ class Index extends BaseController {
         echo view('scripts/CSVWriter.php');
         echo view('modals/legend');
         echo view('templates/Footer');
+//          echo view('scripts/test');
     }
 
     function writeCSV(){

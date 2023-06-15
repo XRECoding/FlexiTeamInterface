@@ -1,47 +1,96 @@
-<script>
-// Definieren Sie ein Diagramm und den Diagrammtyp
-var diagram = new go.Diagram("myDiagramDiv");
-diagram.initialContentAlignment = go.Spot.Center;
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Sortable - Connect lists</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        #sortable1, #sortable2, #main-resourceTable, #main-staff {
+            border: 1px solid #eee;
+            width: 142px;
+            min-height: 20px;
+            /*list-style-type: none;*/
+            /*margin: 0;*/
+            /*padding: 5px 0 0 0;*/
+            /*float: left;*/
+            /*margin-right: 10px;*/
+        }
+        #sortable1 li, #sortable2 li {
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#sortable1, #sortable2" ).sortable({
+                connectWith: ".connectedSortable"
+            }).disableSelection();
+        } );
 
-// Fügen Sie einen Knotentyp hinzu, der scrollbar ist
-diagram.nodeTemplate =
-  gojs(go.Node, "Auto",
-    { resizable: true, resizeObjectName: "BODY" },
-    gojs(go.Shape, "RoundedRectangle", { fill: "white" }),
-    gojs(go.Panel, "Vertical",
-      { defaultAlignment: go.Spot.Left, margin: 5 },
-      gojs(go.TextBlock,
-        { margin: 5, editable: true },
-        new go.Binding("text", "text").makeTwoWay()
-      )
-    ),
-    // Hinzufügen der Scrollbalken
-    gojs("ScrollBar",
-      { alignment: go.Spot.Right, width: 10 },
-      new go.Binding("visible", "visible").ofObject("BODY").not()
-    ),
-    // Verknüpfen der Scrollbar mit dem Inhalt des Knotens
-    {
-      mouseEnter: function(e, obj) { showScrollBar(obj, true); },
-      mouseLeave: function(e, obj) { showScrollBar(obj, false); }
-    }
-  );
+        $( function() {
+            $( "#main-resourceTable, #main-staff" ).sortable({
+                connectWith: ".connectedSortable"
+            }).disableSelection();
+        } );
+    </script>
+</head>
+<body>
 
-// Hilfsfunktion zum Ein- und Ausblenden der Scrollbar
-function showScrollBar(node, show) {
-  var ad = node.findAdornment("ScrollBar");
-  if (ad !== null) ad.findObject("BODY").visible = show;
-}
+<ul id="sortable1" class="connectedSortable">
+    <li class="ui-state-default">Item 1</li>
+    <li class="ui-state-default">Item 2</li>
+    <li class="ui-state-default">Item 3</li>
+    <li class="ui-state-default">Item 4</li>
+    <li class="ui-state-default">Item 5</li>
+</ul>
 
-// Erstellen Sie einige Knoten mit langem Text
-diagram.model = new go.GraphLinksModel(
-  [
-    { key: 1, text: "Langer Text für Knoten 1. Dieser Text wird im scrollbaren Knoten angezeigt." },
-    { key: 2, text: "Ein weiterer langer Text für Knoten 2. Der Inhalt kann über den Scrollbalken gescrollt werden." }
-  ],
-  [
-    { from: 1, to: 2 }
-  ]
-);
+<ul id="sortable2" class="connectedSortable">
+    <li class="ui-state-highlight">Item 1</li>
+    <li class="ui-state-highlight">Item 2</li>
+    <li class="ui-state-highlight">Item 3</li>
+    <li class="ui-state-highlight">Item 4</li>
+    <li class="ui-state-highlight">Item 5</li>
+</ul>
 
-</script>
+
+<table>
+    <thead>
+    <tr>
+        <th>A1</th>
+        <th>A2</th>
+    </tr>
+    </thead>
+    <tbody id="main-resourceTable" class="connectedSortable">
+    <!-- Body gets filled with JS -->
+    <tr><td>somedata</td><td>somedata</td></tr>
+    <tr><td>somedata</td><td>somedata</td></tr>
+    <tr><td>somedata</td><td>somedata</td></tr>
+    <tr><td>somedata</td><td>somedata</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+    <tr>
+        <th>B1</th>
+        <th>B2</th>
+    </tr>
+    </thead>
+    <tbody id="main-staff" class="connectedSortable">
+    <!-- Body gets filled with JS -->
+    <tr><td>somedata</td><td>somedata</td></tr>
+    <tr><td>somedata</td><td>somedata</td></tr>
+    <tr><td>somedata</td><td>somedata</td></tr>
+    <tr><td>somedata</td><td>somedata</td></tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
