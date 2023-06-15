@@ -117,9 +117,11 @@
     for (let i = 0; i < data.length; i++) {
         var test = data[i];
         var option = document.createElement('option');
-        option.text = test.workflowId;      // TOdo should be Type
+        option.text = test.workflowType;
         option.value = i;
+        option.id = test.workflowId;
 
+        // search if any subtask of the procedure has a critical area
         for (let j = 0; j < data[i].subTasks.length; j++) {
             if (data[i].subTasks[j].problem == "yes"){
                 // console.log(data[i].subTasks[j].tasks);

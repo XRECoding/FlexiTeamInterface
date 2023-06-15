@@ -286,7 +286,7 @@
         dfsInit(workflow);
 
         function dfsInit(workflow) {
-            var selectedOptionText = (typeof workflow === 'string') ? workflow : workflow.options[workflow.selectedIndex].text;
+            var selectedOptionText = (typeof workflow === 'string') ? workflow : workflow.options[workflow.selectedIndex].id;
             var foundObject = data.find(function(obj) {
                 return obj.workflowId === selectedOptionText;
             });
