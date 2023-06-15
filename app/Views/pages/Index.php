@@ -7,14 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <button class="btn btn-outline-dark" type="submit" id="csvSaveButton">Save</button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <button class="btn btn-outline-dark" type="submit">Submit</button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mx-3">
                     <button class="btn btn-outline-dark" id="redoButton" type="submit">Redo</button>
                 </li>
 
@@ -27,34 +26,8 @@
                             <path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z"/>
                         </svg>
                     </label>
-                    <select class="form-select" id="inputGroupSelect01" style="width: 250px" onchange="init(this)">
-<!--                        <option selected value="W01">W01</option>-->
-<!--                        <option value="W02">W02</option>-->
-<!--                        <option value="W03">W03</option>-->
-<!--                        <option value="W04">W04</option>-->
-<!--                        <option value="W05">W05</option>-->
-                    </select>
+                    <select class="form-select" id="inputGroupSelect01" style="width: 250px" onchange="init(this)"></select>
                 </div>
-
-                <!-- <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupSelect01">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16">
-                            <path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z"/>
-                        </svg>
-                    </label>
-                    <select class="form-select" id="inputGroupSelect01" style="width: 250px" onchange="init(this)">
-                        <option selected value="W01">W01</option>
-                        <option value="W02">W02</option>
-                        <option value="W03">W03</option>
-                        <option value="W04">W04</option>
-                        <option value="W05">W05</optSion>
-                    </select>
-                </div> -->
-
-                <!-- <li class="nav-item">
-                    <button type="button" id="test" class="btn btn-primary">Undo</button>
-                </li> -->
-
 
             </ul>
 

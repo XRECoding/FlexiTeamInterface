@@ -13,13 +13,13 @@
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
-                                <li class="nav-item">
+                                <li class="nav-item mx-3">
                                     <button class="btn btn-outline-dark" type="submit" disabled>Save</button>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item mx-3">
                                     <button class="btn btn-outline-dark" type="submit" disabled>Submit</button>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item mx-3">
                                     <button class="btn btn-outline-dark" type="submit" disabled>Redo</button>
                                 </li>
 
