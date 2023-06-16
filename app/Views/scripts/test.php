@@ -7,15 +7,10 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <style>
-        #sortable1, #sortable2, #main-resourceTable, #main-staff {
+        #sortable1, #sortable2, {
             border: 1px solid #eee;
             width: 142px;
             min-height: 20px;
-            /*list-style-type: none;*/
-            /*margin: 0;*/
-            /*padding: 5px 0 0 0;*/
-            /*float: left;*/
-            /*margin-right: 10px;*/
         }
         #sortable1 li, #sortable2 li {
             margin: 0 5px 5px 5px;
@@ -23,6 +18,54 @@
             font-size: 1.2em;
             width: 120px;
         }
+
+
+
+
+
+
+        /* Basic CSS for scrollable table*/
+        .tableFixHead {
+            overflow: auto;
+            height: 75%;
+        }
+
+        .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            /*  For better Drag & Drop Functionality
+                This makes it easier to drop into an empty table */
+            padding:5px 0;
+            min-width:100px;
+            /*min-height: 100px;*/
+        }
+        th, td {
+            padding: 8px 16px;
+        }
+        th     {
+            background:#eee;
+        }
+
+        table tr td {
+            border: 1px solid red;
+        }
+
+
+        #main-resourceTable, #main-staffTable {
+            border: 1px solid #47bc16;
+        }
+
+
+
+
+
+
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -34,7 +77,7 @@
         } );
 
         $( function() {
-            $( "#main-resourceTable, #main-staff" ).sortable({
+            $( "#main-resourceTable, #main-staffTable" ).sortable({
                 connectWith: ".connectedSortable"
             }).disableSelection();
         } );
@@ -58,39 +101,41 @@
     <li class="ui-state-highlight">Item 5</li>
 </ul>
 
+<div class="tableFixHead">
+    <table>
+        <thead>
+        <tr>
+            <th>A1</th>
+            <th>A2</th>
+        </tr>
+        </thead>
+        <tbody id="main-resourceTable" class="connectedSortable">
+        <!-- Body gets filled with JS -->
+        <tr><td>somedata</td><td>somedata</td></tr>
+        <tr><td>somedata</td><td>somedata</td></tr>
+        <tr><td>somedata</td><td>somedata</td></tr>
+        <tr><td>somedata</td><td>somedata</td></tr>
+        </tbody>
+    </table>
+</div>
 
-<table>
-    <thead>
-    <tr>
-        <th>A1</th>
-        <th>A2</th>
-    </tr>
-    </thead>
-    <tbody id="main-resourceTable" class="connectedSortable">
-    <!-- Body gets filled with JS -->
-    <tr><td>somedata</td><td>somedata</td></tr>
-    <tr><td>somedata</td><td>somedata</td></tr>
-    <tr><td>somedata</td><td>somedata</td></tr>
-    <tr><td>somedata</td><td>somedata</td></tr>
-    </tbody>
-</table>
-
-<table>
-    <thead>
-    <tr>
-        <th>B1</th>
-        <th>B2</th>
-    </tr>
-    </thead>
-    <tbody id="main-staff" class="connectedSortable">
-    <!-- Body gets filled with JS -->
-    <tr><td>somedata</td><td>somedata</td></tr>
-    <tr><td>somedata</td><td>somedata</td></tr>
-    <tr><td>somedata</td><td>somedata</td></tr>
-    <tr><td>somedata</td><td>somedata</td></tr>
-    </tbody>
-</table>
-
+<div class="tableFixHead">
+    <table>
+        <thead>
+        <tr>
+            <th>B1</th>
+            <th>B2</th>
+        </tr>
+        </thead>
+        <tbody id="main-staffTable" class="connectedSortable">
+        <!-- Body gets filled with JS -->
+        <tr><td>somedata</td><td>somedata</td></tr>
+        <tr><td>somedata</td><td>somedata</td></tr>
+        <tr><td>somedata</td><td>somedata</td></tr>
+        <tr><td>somedata</td><td>somedata</td></tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
