@@ -6,6 +6,13 @@
     <title>jQuery UI Sortable - Connect lists</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
     <style>
         #sortable1, #sortable2, {
             border: 1px solid #eee;
@@ -18,11 +25,6 @@
             font-size: 1.2em;
             width: 120px;
         }
-
-
-
-
-
 
         /* Basic CSS for scrollable table*/
         .tableFixHead {
@@ -43,7 +45,6 @@
                 This makes it easier to drop into an empty table */
             padding:5px 0;
             min-width:100px;
-            /*min-height: 100px;*/
         }
         th, td {
             padding: 8px 16px;
@@ -61,7 +62,13 @@
             border: 1px solid #47bc16;
         }
 
+        tbody{
+            box-sizing: unset;
+        }
 
+        table {
+            min-height: unset;
+        }
 
 
 
