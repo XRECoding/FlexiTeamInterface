@@ -20,6 +20,7 @@ class Index extends BaseController {
 
         echo view('templates/Header', $data);
         echo view('pages/Index');
+//        echo view('scripts/test2');
 //        echo view('pages/Modals/Index');
         echo view('pages/Modals/neu');
         echo view('scripts/CSVParser');
@@ -28,7 +29,8 @@ class Index extends BaseController {
         echo view('scripts/CSVWriter.php');
         echo view('modals/legend');
         echo view('templates/Footer');
-//          echo view('scripts/test');
+
+
     }
 
     function writeCSV(){

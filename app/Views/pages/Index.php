@@ -80,12 +80,12 @@
     </div>
 </nav>
 
-<div class="container-fluid h-100">
-    <div class="row h-100" >
-        <div class="col-2 h-100 border" style="background-color: #F8F9FA;">
+<div class="container-fluid">
+    <div class="row h-100" style="max-height: 85%">
+        <div class="col-2 border" style="background-color: #F8F9FA;">
             Sidebar
         </div>
-        <div class="col h-100 p-0 m-0">
+        <div class="col p-0 m-0">
             <div id="myDiagramDiv" class="h-100 w-100"></div>
         </div>
     </div>

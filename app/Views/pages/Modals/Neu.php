@@ -50,9 +50,9 @@
                     </div>
                 </nav>
 
-                <div class="container-fluid h-100">
-                    <div class="row h-100" >
-                        <div class="col-3 col-xl-2 border" style="background-color: #F8F9FA;">
+                <div class="container-fluid">
+                    <div class="row h-100"  style="max-height: 85%">
+                        <div class="col-3 col-xl-2 border" style="background-color: #F8F9FA; max-height: 100%">
                             <br>
                             <!-- Tab Nav bar -->
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -80,7 +80,7 @@
 
                                     <!-- Staff Listing -->
                                     <div class="tableFixHead">
-                                        <table> <!-- class="table table-bordered table-striped" -->
+                                        <table style="width: 100%"> <!-- class="table table-bordered table-striped" -->
                                             <thead>
                                             <tr>
                                                 <th>Job</th>
@@ -112,7 +112,7 @@
 
                                     <!-- Resource Listing -->
                                     <div class="tableFixHead">
-                                        <table>
+                                        <table style="width: 100%">
                                             <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col h-100 p-0 m-0">
+                        <div class="col p-0 m-0">
 
                             <br>
 
@@ -137,7 +137,7 @@
                                 <div class="progress-bar" id="progressBar" role="progressbar" style="width: 100%; background-color: mediumpurple; font-size: 140%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Surgery</div>
                             </div>
 
-                            <div class="row" style="margin-left: inherit; margin-right: inherit; margin-top: 3.85%; height: 77%" >
+                            <div class="row" style="margin-left: inherit; margin-right: inherit; margin-top: 3.85%; height: 88.4%" >
                                 <div class="col h-100 border-end border-top border-bottom border-start">
 
                                     <div class="tab-content" id="myTabContent">
@@ -197,25 +197,16 @@
 
 
                                     <br>
-
-                                </div>
-                            </div>
-
-                            <br>
-
-                            <div class="row" style="margin-left: inherit; margin-right: inherit">
-
-                                <div class="col h-100" style="text-align: right">
-
-
                                 </div>
 
                             </div>
+
+
+
                         </div>
+
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

@@ -12,11 +12,15 @@
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    /*width: 100%;*/
+    /*width: inherit;*/
+    /*overflow: auto;*/
 }
+
 th, td {
     padding: 8px 16px;
 }
+
 th     {
     background:#eee;
 }
@@ -29,7 +33,6 @@ table tr td {
 option.critical {
     background-color: #ff0000;
 }
-
 
 #main-resourceTable, #main-staffTable {
     /* Bigger drag and drop window */
