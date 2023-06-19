@@ -45,7 +45,7 @@
 
         .shape {
             width: calc(33.33% - 50px);
-            height: calc(45% - 50px);
+            height: calc(33.33% - 50px);
             background-color: #DAE8FC;
             margin: 10px;
             display: flex;
@@ -58,13 +58,13 @@
 
         .oval {
             border-radius: 50%;
-            width: calc(25% - 50px);
-            height: calc(25% - 50px);
+            width: calc(33.33%% - 50px);
+            height: calc(33.33%% - 50px);
         }
 
         .octagon {
             width: calc(33.33% - 50px);
-            height: calc(45% - 50px);
+            height: calc(33.33% - 50px);
             position: relative;
             display: flex;
             align-items: center;

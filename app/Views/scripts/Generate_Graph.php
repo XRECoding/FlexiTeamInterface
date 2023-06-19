@@ -22,6 +22,30 @@
 
 
 
+
+        // Benutzerdefinierte Achteck-Figur
+        go.Shape.defineFigureGenerator("Octagon", function(shape, w, h) {
+            var geo = new go.Geometry();
+            var fig = new go.PathFigure(w / 4, 0); // Startpunkt oben
+            geo.add(fig);
+
+            // Linien zu den Ecken
+            fig.add(new go.PathSegment(go.PathSegment.Line, (w * 3) / 4, 0)); // rechts oben
+            fig.add(new go.PathSegment(go.PathSegment.Line, w, h / 4)); // rechts oben mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, w, (h * 3) / 4)); // rechts unten mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, (w * 3) / 4, h)); // rechts unten
+            fig.add(new go.PathSegment(go.PathSegment.Line, w / 4, h)); // links unten
+            fig.add(new go.PathSegment(go.PathSegment.Line, 0, (h * 3) / 4)); // links unten mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, 0, h / 4)); // links oben mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, w / 4, 0)); // links oben
+            
+            // Schließe den Pfad
+            fig.add(new go.PathSegment(go.PathSegment.Line, (w * 3) / 4, 0).close());
+            
+            return geo;
+        });
+
+
         // Definiere das Layout für das Diagramm
         var myDiagram =
             $(go.Diagram, "myDiagramDiv", {
@@ -148,7 +172,7 @@
         // Definiere die Knoten-Templates für verschiedene Kategorien
         myDiagram.nodeTemplateMap.add("Rectangle", createNodeTemplate("Rectangle"));
         myDiagram.nodeTemplateMap.add("Ellipse", createNodeTemplate("Ellipse"));
-        myDiagram.nodeTemplateMap.add("Diamond", createNodeTemplate("Diamond"));
+        myDiagram.nodeTemplateMap.add("Octagon", createNodeTemplate("Octagon"));
 
 
 
@@ -263,19 +287,24 @@
                         dropdown.add(option);
                         dropdown.disabled = true;
 
+                        addForms(clickedNode, workflow);
 
                         modal.style.display = "block";
+                        // initSub(nodeText, staffMain, resourcesMain, nodeColore)
                     }
                 },
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", {
-                        fill: "red", // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
+                        fill: "#ea3131", // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
 
                     }),
                     $(go.Placeholder, {
                         padding: 3
                     })
                 ));
+
+
+
 
 
         // Definiere die Gruppen-Templates
@@ -293,11 +322,8 @@
             var foundObject = data.find(function(obj) {
                 return obj.workflowId === selectedOptionText;
             });
-                
-            dfs(foundObject.subTasks, 1, "blue");
- 
-            // console.log("HELLO");
-            // console.log(foundObject.subTasks);
+
+            dfs(foundObject.subTasks, 1, "#DAE8FC");
 
 
         }
@@ -318,17 +344,17 @@
             // Erstelle den Diagramm-Knoten für Task, Data und Staff
             myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.consumedData, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
             myDiagram.model.addNodeData({key: currentNodeId, text: currentNode.tasks, category: "Rectangle", group: currentNodeId + "group", color: nodeColore});
-            myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.resources, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
+            myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.resources, category: "Octagon", group: currentNodeId + "group", color: nodeColore});
             // Fügen Sie einen Link mit individuellen Eigenschaften zum Diagramm hinzu, einschließlich "isLayoutPositioned"
 
             myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, category: "template1"});
             myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, category: "template1"});
 
-            if (currentNode.tasks === "Surgery") {nodeColore = "green"};
+            if (currentNode.tasks === "Surgery") {nodeColore = "#D5E8D4"};
 
             if (nextNodes.length > 1) {
                 myDiagram.model.addNodeData({key: (currentNodeId + "gate"), text: "AND", category: "Circle"});
-                myDiagram.model.addLinkData({from: currentNodeId, to: (currentNodeId + "gate")});
+                myDiagram.model.addLinkData({from: currentNodeId, to: (currentNodeId + "gate"), category: "template2"});
             }
 
             for (let i = 0; i < nextNodes.length; i++) {

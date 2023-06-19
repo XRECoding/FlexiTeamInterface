@@ -6,26 +6,19 @@ class Index extends BaseController {
     public function index() {
         $data['title'] = 'Index';
 
-        $data['testA'] = "asdf test";
 
-
-        if (isset($_POST['testA'])){
-            $data['testA'] = $_POST['testA'];
-        }
-
-        if (isset($_POST['testB'])){
-            $data['testB'] = $_POST['testB'];
-        }
-
-
-        echo view('templates/Header', $data);
+        echo view('templates/Header2', $data);
         echo view('pages/Index');
 //        echo view('scripts/test2');
 //        echo view('pages/Modals/Index');
-        echo view('pages/Modals/neu');
+        echo view('pages/Modals/Neu.php');
         echo view('scripts/CSVParser');
-        echo view('scripts/Generate_Graph.php');
         echo view('scripts/index.php');
+
+        echo view('scripts/Generate_Graph.php');
+        echo view('scripts/Generate_Subgraph.php');
+
+        
         echo view('scripts/CSVWriter.php');
         echo view('modals/legend');
         echo view('templates/Footer');
