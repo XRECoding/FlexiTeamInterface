@@ -13,25 +13,48 @@
 table {
     border-collapse: collapse;
     width: 100%;
-    /*  For better Drag & Drop Functionality
-        This makes it easier to drop into an empty table */
-    padding:5px 0;
-    min-width:100px;
+    /*width: inherit;*/
+    /*overflow: auto;*/
 }
+
 th, td {
     padding: 8px 16px;
 }
+
 th     {
     background:#eee;
 }
 
-/*table tr td {*/
-/*    border: 1px solid red;*/
-/*}*/
+table tr td {
+    /*border: 1px solid red;*/
+}
 
 /* Color setting for the critical procedures in the Dropdown*/
 option.critical {
-    /*background-color: #a24545;*/
     background-color: #ff0000;
 }
 
+#main-resourceTable, #main-staffTable {
+    /* Bigger drag and drop window */
+    border-bottom: 150px solid #ffffff;
+    width: 100%;
+    min-height: 100px;
+}
+
+#staffTable, #resourceTable {
+    /* Bigger drag and drop window */
+    border-bottom: 150px solid #F8F9FA;
+}
+
+/* Bootstrap settings have to be changed to allow drag and drop into empty table */
+tbody{
+    box-sizing: unset;
+}
+
+table {
+    min-height: unset;
+}
+
+table.sidebar{
+    width: 100%;
+}

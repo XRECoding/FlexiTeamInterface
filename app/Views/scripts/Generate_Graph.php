@@ -64,13 +64,14 @@
             // saving resources
             var dropdown = document.getElementById("inputGroupSelect01");
             var workflowID = dropdown.options[dropdown.selectedIndex].value;
+            console.log(workflowID);
 
             var table = document.getElementById("main-resourceTable");
             var writeString = "";
             for (var i = 0, row; row = table.rows[i]; i++) {
                 writeString += row.cells[0].textContent + "/";
             }
-            writeString =   writeString.substr(0, writeString.length-2);
+            writeString =   writeString.substr(0, writeString.length-1);
 
             var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
             myDiagram.select(clickedNode);
@@ -91,7 +92,7 @@
             for (var i = 0, row; row = table.rows[i]; i++) {
                 writeString += row.cells[1].textContent + "/";
             }
-            writeString =   writeString.substr(0, writeString.length-2);
+            writeString =   writeString.substr(0, writeString.length-1);
 
             clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
             myDiagram.select(clickedNode);
@@ -261,6 +262,9 @@
 
                         table = document.getElementById("main-staffTable");
                         while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+
+
+
                         for (let i = 0; i < staffMain.length; i++) {
                             var row = table.insertRow();
                             var cellFirst = row.insertCell(0);
@@ -314,7 +318,7 @@
         dfsInit(workflow);
 
         function dfsInit(workflow) {
-            var selectedOptionText = (typeof workflow === 'string') ? workflow : workflow.options[workflow.selectedIndex].text;
+            var selectedOptionText = (typeof workflow === 'string') ? workflow : workflow.options[workflow.selectedIndex].id;
             var foundObject = data.find(function(obj) {
                 return obj.workflowId === selectedOptionText;
             });
