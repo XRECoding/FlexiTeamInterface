@@ -7,14 +7,19 @@ class Index extends BaseController {
         $data['title'] = 'Index';
 
         // header
-        echo view('templates/Header2', $data);
+        // echo view('templates/Header_list', $data);
+        // echo view('templates/Header_list_tablet', $data);
+        // echo view('templates/header_zoom', $data);
+        echo view('templates/header_zoom_tablet', $data);
+
+
 
         // Main Page
         echo view('pages/Index');
 
         // the desired modal
-        echo view('pages/Modals/Neu.php');
-//        echo view('pages/Modals/Neu_zoom_in.php');
+        // echo view('pages/Modals/Modal_list.php');
+        echo view('pages/Modals/Modal_zoom.php');
 
         // JavaScript
         // CSV Parser

@@ -1,6 +1,10 @@
 <script>
   const csvFileName = 'Workflow_new_updated_lateast.csv';
 
+  // Die Funktion "loadCSV()" lädt eine CSV-Datei über eine XMLHttpRequest-Abfrage synchron, 
+  // d.h. der Code blockiert, bis die Anfrage abgeschlossen ist. Wenn die Anfrage erfolgreich
+  // ist (Statuscode 200), wird der Inhalt der CSV-Datei an die Funktion "processCSV()" übergeben,
+  // die die Daten verarbeitet und in einem bestimmten Format zurückgibt.
   function loadCSV() {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', csvFileName, false); // Durch false wird das ganze Synchron durchgeführt
@@ -12,6 +16,11 @@
     }
   }
 
+
+  // Die Funktion "processCSV(csvData)" nimmt den Inhalt einer CSV-Datei entgegen, zerlegt ihn
+  // in Zeilen und erstellt ein Array mit Workflow-Daten. Jeder Workflow enthält eine eindeutige
+  // ID, einen Typ und eine Liste von Unteraufgaben mit verschiedenen Eigenschaften wie Dauer,
+  // Veranstaltungsort, Verfahren usw.
   function processCSV(csvData) {
     var lines = csvData.split("\n");
         var dataArray = [];

@@ -14,11 +14,12 @@
 
         var squareElement = document.getElementById('square');
         squareElement.style.backgroundColor = nodeColore;
-        squareElement.textContent = "Resources";
-
+        if (squareElement.childElementCount === 0)  { squareElement.textContent = "Resources"; }
+        
         var octagonElement = document.getElementById('octagon');
         octagonElement.style.backgroundColor = nodeColore;
-        octagonElement.textContent = "Staff";
+        if (octagonElement.childElementCount === 0)  { octagonElement.textContent = "Staff"; }
+
 
 
         // Change color and text of the progressbar to reflect the status of the given node
