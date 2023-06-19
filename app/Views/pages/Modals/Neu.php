@@ -198,11 +198,11 @@
                                 <div class="col h-100 border-end border-top border-bottom">
                                     <div class="container">
 
-                                        <div class="shape"></div>
-                                        <div class="shape oval" id="kreis"></div>
+                                        <div class="shape" id="square" ></div>
+                                        <div class="shape oval" id="oval" style="text-align: center"></div>
                                         <div class="lineVerticalMiddle"></div>
                                         <div id="linesAndText"></div>
-                                        <div class="shape octagon"></div>
+                                        <div class="shape octagon" id="octagon"></div>
                                         
                                         
                                     </div>
