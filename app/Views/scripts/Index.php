@@ -2,6 +2,8 @@
     // load the CSV
     var data = loadCSV();
 
+    console.log(data);
+
     var foundObject = data.find(function(obj) {
         return obj.workflowId === "W01";
     });

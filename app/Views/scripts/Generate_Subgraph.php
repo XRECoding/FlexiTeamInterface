@@ -43,7 +43,7 @@
     // connections between tasks. The code uses conditional statements to generate different
     // line styles and texts based on the presence of the previous and next nodes.
     function addLines(id, workflow) {
-        var selectedOptionText = (typeof workflow === 'string') ? workflow : workflow.options[workflow.selectedIndex].text;
+        var selectedOptionText = (typeof workflow === 'string') ? workflow : workflow.options[workflow.selectedIndex].id;
         var foundObject = data.find(function(obj) {
             return obj.workflowId === selectedOptionText;
         });
