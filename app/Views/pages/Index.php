@@ -9,13 +9,13 @@
 
             
                 <li class="nav-item">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-dark" type="submit" id="csvSaveButton">Save</button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-dark" type="submit">Submit</button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-dark" type="submit">Redo</button>
                 </li>
 
                 <li class="nav-item" style="padding-right: 20px;"></li>
@@ -28,11 +28,11 @@
                         </svg>
                     </label>
                     <select class="form-select" id="inputGroupSelect01" style="width: 250px" onchange="init(this)">
-                        <option selected value="W01">W01</option>
-                        <option value="W02">W02</option>
-                        <option value="W03">W03</option>
-                        <option value="W04">W04</option>
-                        <option value="W05">W05</option>
+<!--                        <option selected value="W01">W01</option>-->
+<!--                        <option value="W02">W02</option>-->
+<!--                        <option value="W03">W03</option>-->
+<!--                        <option value="W04">W04</option>-->
+<!--                        <option value="W05">W05</option>-->
                     </select>
                 </div>
 

@@ -22,6 +22,30 @@
 
 
 
+
+        // Benutzerdefinierte Achteck-Figur
+        go.Shape.defineFigureGenerator("Octagon", function(shape, w, h) {
+            var geo = new go.Geometry();
+            var fig = new go.PathFigure(w / 4, 0); // Startpunkt oben
+            geo.add(fig);
+
+            // Linien zu den Ecken
+            fig.add(new go.PathSegment(go.PathSegment.Line, (w * 3) / 4, 0)); // rechts oben
+            fig.add(new go.PathSegment(go.PathSegment.Line, w, h / 4)); // rechts oben mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, w, (h * 3) / 4)); // rechts unten mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, (w * 3) / 4, h)); // rechts unten
+            fig.add(new go.PathSegment(go.PathSegment.Line, w / 4, h)); // links unten
+            fig.add(new go.PathSegment(go.PathSegment.Line, 0, (h * 3) / 4)); // links unten mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, 0, h / 4)); // links oben mittig
+            fig.add(new go.PathSegment(go.PathSegment.Line, w / 4, 0)); // links oben
+            
+            // Schließe den Pfad
+            fig.add(new go.PathSegment(go.PathSegment.Line, (w * 3) / 4, 0).close());
+            
+            return geo;
+        });
+
+
         // Definiere das Layout für das Diagramm
         var myDiagram =
             $(go.Diagram, "myDiagramDiv", {
@@ -35,7 +59,56 @@
                 }
             );
 
+        // Adding save functionality to modal save button
+        document.getElementById("saveButton").onclick = function () {
+            // saving resources
+            var dropdown = document.getElementById("inputGroupSelect01");
+            var workflowID = dropdown.options[dropdown.selectedIndex].value;
 
+            var table = document.getElementById("main-resourceTable");
+            var writeString = "";
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                writeString += row.cells[0].textContent + "/";
+            }
+            writeString =   writeString.substr(0, writeString.length-2);
+
+            var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
+            myDiagram.select(clickedNode);
+            myDiagram.model.commit(m => {
+                m.set(clickedNode.data, "text", writeString);
+            }, "changed text");
+
+            // also writing into the array to make a save state possible
+            // nodes[clickedNodeId-1].data = writeString;
+            // console.log(data[workflowID].subTasks[clickedNodeId-1].consumedData);
+            // console.log(clickedNodeId);
+            data[workflowID].subTasks[clickedNodeId-1].consumedData = writeString;
+
+
+            // saving staff
+            table = document.getElementById("main-staffTable");
+            writeString = "";
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                writeString += row.cells[1].textContent + "/";
+            }
+            writeString =   writeString.substr(0, writeString.length-2);
+
+            clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+            myDiagram.select(clickedNode);
+            myDiagram.model.commit(m => {
+                m.set(clickedNode.data, "text", writeString);
+            }, "changed text");
+
+            // also writing into the array to make a save state possible
+            // nodes[clickedNodeId-1].staff = writeString;
+            data[workflowID].subTasks[clickedNodeId-1].resources = writeString;
+
+
+            // var test = clickedNode.findSubGraphParts();
+            // console.log(nodes);
+
+            modal.style.display = "none";
+        }
 
         // Definiere Link-Templates, um die Verbindungen des Diagramms optisch anzupassen.
         // Durch die Verwendung eines separaten Link-Templates können wir das Aussehen der
@@ -98,7 +171,7 @@
         // Definiere die Knoten-Templates für verschiedene Kategorien
         myDiagram.nodeTemplateMap.add("Rectangle", createNodeTemplate("Rectangle"));
         myDiagram.nodeTemplateMap.add("Ellipse", createNodeTemplate("Ellipse"));
-        myDiagram.nodeTemplateMap.add("Diamond", createNodeTemplate("Diamond"));
+        myDiagram.nodeTemplateMap.add("Octagon", createNodeTemplate("Octagon"));
 
 
 
@@ -152,19 +225,82 @@
                     layout: $(go.LayeredDigraphLayout, { direction: 0 }),
                     click: function(e, group) {
                         // Behandle den Klick auf die Gruppe hier
-                        console.log("Gruppe wurde geklickt: " + group.data.key);
+                        // console.log("Gruppe wurde geklickt: " + group.data.key);
+
+                        // var clickedNode = myDiagram.findNodeForKey(group.data.key);
+
+                        // console.log(nodes);
+
+                        // set the id of the clicked node
+                        clickedNodeId = group.data.key.replace("group", "");   // Todo find better solution. eg working with GoJS groups
+
+
+                        // adding staff & resources to the sidebar table
+                        sidebarFill();
+
+                        // Adding resources to the Main Pane
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
+                        const resourcesMain = clickedNode.data.text.split("/");
+                        const resourceNumbersMain = [];     // Todo
+
+                        var table = document.getElementById("main-resourceTable");
+                        while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                        for (let i = 0; i < resourcesMain.length; i++) {
+                            var row = table.insertRow();
+                            var cellFirst = row.insertCell(0);
+                            var cellSecond = row.insertCell(1);
+                            cellFirst.innerText = resourcesMain[i];
+                            cellSecond.innerText = resourceNumbersMain[i];
+                        }
+
+                        // Adding staff to the Main Pane
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+                        const staffMain = clickedNode.data.text.split("/");
+                        const jobsMain = [];    // TODO
+                        const replace = [true];     // TODO
+
+                        table = document.getElementById("main-staffTable");
+                        while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                        for (let i = 0; i < staffMain.length; i++) {
+                            var row = table.insertRow();
+                            var cellFirst = row.insertCell(0);
+                            var cellSecond = row.insertCell(1);
+                            if (replace[i]){ cellSecond.setAttribute("style", "text-decoration: line-through; text-decoration-thickness: 3px");}
+                            cellFirst.innerText = jobsMain[i];
+                            cellSecond.innerText = staffMain[i];
+                        }
+
+                        // changing the progress bar
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
+                        document.getElementById("progressBar").innerHTML = clickedNode.data.text;
+
+                        // adding the selected option to the modal dropdown
+                        var dropdown = document.getElementById("inputGroupSelect01");
+                        var dropdownText = dropdown.options[dropdown.selectedIndex].text;
+                        var option = document.createElement('option');
+                        option.text = dropdownText;
+                        dropdown = document.getElementById("disabledDropdown");
+                        dropdown.add(option);
+                        dropdown.disabled = true;
+
+                        addForms(clickedNode, workflow);
+
                         modal.style.display = "block";
+                        // initSub(nodeText, staffMain, resourcesMain, nodeColore)
                     }
                 },
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", {
-                        fill: "red", // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
+                        fill: "#ea3131", // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
 
                     }),
                     $(go.Placeholder, {
                         padding: 3
                     })
                 ));
+
+
+
 
 
         // Definiere die Gruppen-Templates
@@ -182,11 +318,8 @@
             var foundObject = data.find(function(obj) {
                 return obj.workflowId === selectedOptionText;
             });
-                
-            dfs(foundObject.subTasks, 1, "blue");
- 
-            console.log("HELLO");
-            console.log(foundObject.subTasks);
+
+            dfs(foundObject.subTasks, 1, "#DAE8FC");
 
 
         }
@@ -207,17 +340,17 @@
             // Erstelle den Diagramm-Knoten für Task, Data und Staff
             myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.consumedData, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
             myDiagram.model.addNodeData({key: currentNodeId, text: currentNode.tasks, category: "Rectangle", group: currentNodeId + "group", color: nodeColore});
-            myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.resources, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
+            myDiagram.model.addNodeData({key: (currentNodeId + "staff"), text: currentNode.resources, category: "Octagon", group: currentNodeId + "group", color: nodeColore});
             // Fügen Sie einen Link mit individuellen Eigenschaften zum Diagramm hinzu, einschließlich "isLayoutPositioned"
 
             myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, category: "template1"});
             myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, category: "template1"});
 
-            if (currentNode.tasks === "Surgery") {nodeColore = "green"};
+            if (currentNode.tasks === "Surgery") {nodeColore = "#D5E8D4"};
 
             if (nextNodes.length > 1) {
                 myDiagram.model.addNodeData({key: (currentNodeId + "gate"), text: "AND", category: "Circle"});
-                myDiagram.model.addLinkData({from: currentNodeId, to: (currentNodeId + "gate")});
+                myDiagram.model.addLinkData({from: currentNodeId, to: (currentNodeId + "gate"), category: "template2"});
             }
 
             for (let i = 0; i < nextNodes.length; i++) {
@@ -277,5 +410,7 @@
 
 
     init("W01");
+
+
 
 </script>
