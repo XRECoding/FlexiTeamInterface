@@ -166,7 +166,7 @@
                                 <div class="col h-100 border-end border-top border-bottom">
                                     <div class="container">
 
-                                        <div class="shape">
+                                        <div class="shape" id="square">
                                             <div class="tableFixHead">
                                                 <table> <!-- class="table table-bordered table-striped" -->
                                                     <thead>
@@ -181,10 +181,10 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="shape oval" id="kreis"></div>
+                                        <div class="shape oval" id="oval"></div>
                                         <div class="lineVerticalMiddle"></div>
                                         <div id="linesAndText"></div>
-                                        <div class="shape octagon">
+                                        <div class="shape octagon" id="octagon">
                                         <div class="tableFixHead">
                                             <table>
                                                 <thead>

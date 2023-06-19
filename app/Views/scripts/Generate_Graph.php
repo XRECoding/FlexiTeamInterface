@@ -270,10 +270,6 @@
                             cellSecond.innerText = staffMain[i];
                         }
 
-                        // changing the progress bar
-                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
-                        document.getElementById("progressBar").innerHTML = clickedNode.data.text;
-
                         // adding the selected option to the modal dropdown
                         var dropdown = document.getElementById("inputGroupSelect01");
                         var dropdownText = dropdown.options[dropdown.selectedIndex].text;
@@ -283,10 +279,10 @@
                         dropdown.add(option);
                         dropdown.disabled = true;
 
+                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
                         addForms(clickedNode, workflow);
 
                         modal.style.display = "block";
-                        // initSub(nodeText, staffMain, resourcesMain, nodeColore)
                     }
                 },
                 $(go.Panel, "Auto",
