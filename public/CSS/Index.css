@@ -13,11 +13,6 @@
 table {
     border-collapse: collapse;
     width: 100%;
-    /*  For better Drag & Drop Functionality
-        This makes it easier to drop into an empty table */
-    /*padding:5px 0;*/
-    /*min-width:100px;*/
-    /*min-height: 100px;*/
 }
 th, td {
     padding: 8px 16px;
@@ -37,17 +32,23 @@ option.critical {
 
 
 #main-resourceTable, #main-staffTable {
-    border-bottom: 150px solid #47bc16;
+    /* Bigger drag and drop window */
+    border-bottom: 150px solid #ffffff;
     width: 100%;
     min-height: 100px;
 }
 
+#staffTable, #resourceTable {
+    /* Bigger drag and drop window */
+    border-bottom: 150px solid #F8F9FA;
+}
 
+/* Bootstrap settings have to be changed to allow drag and drop into empty table */
 tbody{
     box-sizing: unset;
-    /*min-height: 500px;*/
 }
 
 table {
     min-height: unset;
 }
+
