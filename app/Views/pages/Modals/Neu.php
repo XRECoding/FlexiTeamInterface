@@ -80,7 +80,7 @@
 
                                     <!-- Staff Listing -->
                                     <div class="tableFixHead">
-                                        <table style="width: 100%"> <!-- class="table table-bordered table-striped" -->
+                                        <table class="sidebar"> <!-- class="table table-bordered table-striped" -->
                                             <thead>
                                             <tr>
                                                 <th>Job</th>
@@ -112,7 +112,7 @@
 
                                     <!-- Resource Listing -->
                                     <div class="tableFixHead">
-                                        <table style="width: 100%">
+                                        <table class="sidebar">
                                             <thead>
                                             <tr>
                                                 <th>Name</th>

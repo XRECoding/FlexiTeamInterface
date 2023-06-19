@@ -12,7 +12,7 @@
 
 table {
     border-collapse: collapse;
-    /*width: 100%;*/
+    width: 100%;
     /*width: inherit;*/
     /*overflow: auto;*/
 }
@@ -55,3 +55,6 @@ table {
     min-height: unset;
 }
 
+table.sidebar{
+    width: 100%;
+}
