@@ -7,6 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+                <!-- Save as CSV Button -->
                 <li class="nav-item mx-2">
                     <button class="btn btn-outline-dark" type="submit" id="csvSaveButton" style="white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -16,6 +17,8 @@
                         Save as CSV
                     </button>
                 </li>
+
+                <!-- Submit Button -->
                 <li class="nav-item mx-2">
                     <button class="btn btn-outline-dark" type="submit" style="white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
@@ -25,19 +28,19 @@
                         Submit
                     </button>
                 </li>
+
+                <!-- Undo Button -->
                 <li class="nav-item mx-2">
-                    <button class="btn btn-outline-dark" id="redoButton" type="submit" style="white-space: nowrap;">
+                    <button class="btn btn-outline-dark" id="undoButton" type="submit" style="white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                             <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
                         </svg>
-                        Redo
+                        Undo
                     </button>
                 </li>
 
-<!--                <li class="nav-item" style="padding-right: 20px;"></li>-->
-
-
+                <!-- Procedure Dropdown -->
                 <div class="input-group mx-5">
                     <label class="input-group-text" for="inputGroupSelect01" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16">
@@ -49,7 +52,7 @@
 
             </ul>
 
-
+            <!-- Profile Menu -->
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -64,6 +67,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/></svg>
                             </a>
                             <ul class="dropdown-menu">
+                                <!-- Dropdown Items for the Profile Menu -->
                                 <li><a class="dropdown-item" href="#">My Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -73,9 +77,6 @@
                 </div>
             </nav>
 
-
-
-
         </div>
     </div>
 </nav>
@@ -83,9 +84,11 @@
 <div class="container-fluid">
     <div class="row h-100" style="max-height: 85%">
         <div class="col-2 border" style="background-color: #F8F9FA;">
+            <!-- Sidebar Content -->
             Sidebar
         </div>
         <div class="col p-0 m-0">
+            <!-- Main Pane Content (Graph) -->
             <div id="myDiagramDiv" class="h-100 w-100"></div>
         </div>
     </div>

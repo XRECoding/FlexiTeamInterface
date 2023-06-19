@@ -61,28 +61,30 @@
 
         // Adding save functionality to modal save button
         document.getElementById("saveButton").onclick = function () {
-            // saving resources
+            // getting the ID of the workflow / procedure
             var dropdown = document.getElementById("inputGroupSelect01");
             var workflowID = dropdown.options[dropdown.selectedIndex].value;
-            console.log(workflowID);
 
+            // saving resources
             var table = document.getElementById("main-resourceTable");
             var writeString = "";
             for (var i = 0, row; row = table.rows[i]; i++) {
+                // format the string for the graph node
+                // the same separator has to be used when splitting the text when generating the table for the modal
                 writeString += row.cells[0].textContent + "/";
             }
+            // remove the last separator
             writeString =   writeString.substr(0, writeString.length-1);
 
+            // get the graph node for resources
             var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
             myDiagram.select(clickedNode);
+            // writing the new text into the node. the commit function MUST be used
             myDiagram.model.commit(m => {
                 m.set(clickedNode.data, "text", writeString);
             }, "changed text");
 
-            // also writing into the array to make a save state possible
-            // nodes[clickedNodeId-1].data = writeString;
-            // console.log(data[workflowID].subTasks[clickedNodeId-1].consumedData);
-            // console.log(clickedNodeId);
+            // also writing into the data array to make a save state possible
             data[workflowID].subTasks[clickedNodeId-1].consumedData = writeString;
 
 
@@ -90,24 +92,25 @@
             table = document.getElementById("main-staffTable");
             writeString = "";
             for (var i = 0, row; row = table.rows[i]; i++) {
+                // format the string for the graph node
+                // the same separator has to be used when splitting the text when generating the table for the modal
                 writeString += row.cells[1].textContent + "/";
             }
+            // remove the last separator
             writeString =   writeString.substr(0, writeString.length-1);
 
+            // get the graph node for staff
             clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
             myDiagram.select(clickedNode);
+            // writing the new text into the node. the commit function MUST be used
             myDiagram.model.commit(m => {
                 m.set(clickedNode.data, "text", writeString);
             }, "changed text");
 
-            // also writing into the array to make a save state possible
-            // nodes[clickedNodeId-1].staff = writeString;
+            // also writing into the data array to make a save state possible
             data[workflowID].subTasks[clickedNodeId-1].resources = writeString;
 
-
-            // var test = clickedNode.findSubGraphParts();
-            // console.log(nodes);
-
+            // close the modal
             modal.style.display = "none";
         }
 
@@ -228,9 +231,6 @@
                         // Behandle den Klick auf die Gruppe hier
                         // console.log("Gruppe wurde geklickt: " + group.data.key);
 
-                        // var clickedNode = myDiagram.findNodeForKey(group.data.key);
-
-                        // console.log(nodes);
 
                         // set the id of the clicked node
                         clickedNodeId = group.data.key.replace("group", "");   // Todo find better solution. eg working with GoJS groups
@@ -241,11 +241,16 @@
 
                         // Adding resources to the Main Pane
                         var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "data");
-                        const resourcesMain = clickedNode.data.text.split("/");
-                        const resourceNumbersMain = [];     // Todo
+                        // the separator from the modal save function has to be used
+                        const resourcesMain = clickedNode.data.text.split("/");     // the data array can be used
+                        const resourceNumbersMain = [];     // Todo get the associated IDs once they are included in the CSV
 
+                        // get the resource table
                         var table = document.getElementById("main-resourceTable");
-                        while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                        // deleting the data from previous call
+                        while (table.hasChildNodes()) table.removeChild(table.firstChild);
+
+                        // fill the table with the new data
                         for (let i = 0; i < resourcesMain.length; i++) {
                             var row = table.insertRow();
                             var cellFirst = row.insertCell(0);
@@ -255,28 +260,33 @@
                         }
 
                         // Adding staff to the Main Pane
-                        var clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
-                        const staffMain = clickedNode.data.text.split("/");
-                        const jobsMain = [];    // TODO
-                        const replace = [true];     // TODO
+                        clickedNode = myDiagram.findNodeForKey(clickedNodeId + "staff");
+                        // the separator from the modal save function has to be used
+                        const staffMain = clickedNode.data.text.split("/");     // the data array can be used
+                        const jobsMain = [];    // TODO get the job title once they are included in the CSV
+                        const replace = [true];     // TODO get the information about ill staff once this is included in the CSV
 
+                        // get the staff table
                         table = document.getElementById("main-staffTable");
-                        while (table.hasChildNodes()) table.removeChild(table.firstChild);  // deleting the data from previous call
+                        // deleting the data from previous call
+                        while (table.hasChildNodes()) table.removeChild(table.firstChild);
 
-
-
+                        // fill the table with the new data
                         for (let i = 0; i < staffMain.length; i++) {
                             var row = table.insertRow();
                             var cellFirst = row.insertCell(0);
                             var cellSecond = row.insertCell(1);
-                            if (replace[i]){ cellSecond.setAttribute("style", "text-decoration: line-through; text-decoration-thickness: 3px");}
+                            // if the person has to be replaced add the class to apply CSS
+                            if (replace[i]){ cellSecond.classList.add("replace")};
                             cellFirst.innerText = jobsMain[i];
                             cellSecond.innerText = staffMain[i];
                         }
 
-                        // adding the selected option to the modal dropdown
+                        // adding the selected option of the main dropdown to the modal dropdown
+                        // read the dropdown text from the main page
                         var dropdown = document.getElementById("inputGroupSelect01");
                         var dropdownText = dropdown.options[dropdown.selectedIndex].text;
+                        // create a new option and add it to the modal dropdown
                         var option = document.createElement('option');
                         option.text = dropdownText;
                         dropdown = document.getElementById("disabledDropdown");
@@ -286,6 +296,7 @@
                         var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
                         addForms(clickedNode, workflow);
 
+                        // show the modal
                         modal.style.display = "block";
                     }
                 },

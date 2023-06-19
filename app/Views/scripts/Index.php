@@ -1,16 +1,12 @@
 <script>
-
+    // load the CSV
     var data = loadCSV();
 
     var foundObject = data.find(function(obj) {
         return obj.workflowId === "W01";
     });
 
-
-    // console.log(data);
-    // console.log(foundObject.subTasks);
-
-
+    // connect tbodies to make them drag an dropable
     $("tbody").sortable({connectWith:"tbody"});
 
     // keeping track of the id of the clicked node
@@ -21,16 +17,8 @@
 
     // Adding closing functionality to modal close button
     document.getElementById("modalClose").onclick = function () {
-        console.log("Close");
         modal.style.display = "none";
     }
-
-    // ----------------------------------------------------------
-    // document.getElementById("test").onclick = function () {
-    //     document.getElementById("myModalTest").style.display = "block";
-    // }
-    // ----------------------------------------------------------
-
 
 
     // Sidebar Search for Staff
@@ -85,46 +73,19 @@
         }
     }
 
-    // window.onload = function () {
-        // document.getElementById("resource-tab-pane-2").classList.add("active");
-        // Adding procedures to the Dropdown
-        // const critical = ["false", "true", "false", "true"];
-        // console.log(data);
-
-
-        // var select = document.getElementById("inputGroupSelect01");
-        // data.forEach(function (item) {
-            // var option = document.createElement('option');
-            // option.text = item.workflowID;
-            // select.add(option);
-
-        // })
-        // for (let i = 0; i < data.length; i++) {
-        //     var test = data[i];
-        //     console.log(test.workflowId);
-        // }
-
-
-
-        // var option2 = document.createElement('option');
-        // option2.text = "test";
-        // option2.classList.add("critical");
-        // select.add(option2);
-    // };
 
     // adding procedures to dropdown
     var select = document.getElementById("inputGroupSelect01");
     for (let i = 0; i < data.length; i++) {
-        var test = data[i];
+        var procedureHeader = data[i];
         var option = document.createElement('option');
-        option.text = test.workflowType;
+        option.text = procedureHeader.workflowType;
         option.value = i;
-        option.id = test.workflowId;
+        option.id = procedureHeader.workflowId;
 
         // search if any subtask of the procedure has a critical area
         for (let j = 0; j < data[i].subTasks.length; j++) {
             if (data[i].subTasks[j].problem == "yes"){
-                // console.log(data[i].subTasks[j].tasks);
                 option.classList.add("critical");
                 break;
             }
@@ -133,7 +94,7 @@
     }
 
 
-    // Adding Sidebar tabbing logic to main content
+    // Adding modal Sidebar tabbing logic to main content
     document.getElementById("staff-tab").onclick = function () {
         document.getElementById("staff-tab-pane-2").classList.add("active");
         document.getElementById("staff-tab-pane-2").classList.add("show");
@@ -150,17 +111,17 @@
         document.getElementById("resource-tab-pane-2").classList.add("show");
     }
 
-    // add redo logic to redo button
-    document.getElementById("redoButton").onclick = function () {
+
+    // add undo function to undo button
+    document.getElementById("undoButton").onclick = function () {
         location.reload();
-        // return false;
     }
 
 
-
+    // filling the modal sidebar tables with information
     function sidebarFill(){
-        // removing all old rows
-        // its probably more efficient to create a new tbody element und replace the old one
+        // removing all old rows from previous call
+        // TODO its probably more efficient to create a new tbody element und replace the old one
         var table = document.getElementById("staffTable");
         while(table.hasChildNodes()){
             table.removeChild(table.firstChild);
@@ -171,8 +132,8 @@
             table.removeChild(table.firstChild);
         }
 
-
         // Adding staff to the Sidebar
+        // TODO delete once the CSV contains this data
         const staff = ["Octavianus Vladimir", "Pellam Bozena", "Nadia Fallon", "Afzal Columban", "Shyama Ludmilla", "Viktoria Long", "Pearlie Kari", "Eloise Dina"
             // ,"Octavianus Vladimir", "Pellam Bozena", "Nadia Fallon", "Afzal Columban", "Shyama Ludmilla", "Viktoria Long", "Pearlie Kari", "Eloise Dina"
             // ,"Octavianus Vladimir", "Pellam Bozena", "Nadia Fallon", "Afzal Columban", "Shyama Ludmilla", "Viktoria Long", "Pearlie Kari", "Eloise Dina"
@@ -180,6 +141,7 @@
             // ,"Octavianus Vladimir", "Pellam Bozena", "Nadia Fallon", "Afzal Columban", "Shyama Ludmilla", "Viktoria Long", "Pearlie Kari", "Eloise Dina"
             //     ,"Octavianus Vladimir", "Pellam Bozena", "Nadia Fallon", "Afzal Columban", "Shyama Ludmilla", "Viktoria Long", "Pearlie Kari", "Eloise Dina"
         ];
+        // TODO delete once the CSV contains this data
         const jobs = ["Doctor", "Doctor", "Doctor", "Nurse", "Nurse", "Nurse", "Nurse", "Technician"
             // ,"Doctor", "Doctor", "Doctor", "Nurse", "Nurse", "Nurse", "Nurse", "Technician",
             // "Doctor", "Doctor", "Doctor", "Nurse", "Nurse", "Nurse", "Nurse", "Technician",
@@ -193,12 +155,14 @@
             var row = table.insertRow();
             var cellFirst = row.insertCell(0);
             var cellSecond = row.insertCell(1);
+            // TODO read from data array once the CSV contains this data
             cellFirst.innerText = jobs[i];
             cellSecond.innerText = staff[i];
         }
 
 
         // Adding resources to the Sidebar
+        // TODO delete once the CSV contains this data
         const resources = ["Stretcher", "Stethoscope", "Needle", "Tape", "Scissors"];
         const resourceNumbers = ["1", "2", "3", "4", "5"];
 
@@ -207,11 +171,9 @@
             var row = table.insertRow();
             var cellFirst = row.insertCell(0);
             var cellSecond = row.insertCell(1);
+            // TODO read from data array once the CSV contains this data
             cellFirst.innerText = resources[i];
             cellSecond.innerText = resourceNumbers[i];
         }
     }
-
-
-
 </script>

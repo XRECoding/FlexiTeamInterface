@@ -102,7 +102,6 @@
                                 </div>
 
 
-
                                 <!-- Resource Tab -->
                                 <div class="tab-pane" id="resource-tab-pane" role="tabpanel" aria-labelledby="resource-tab" tabindex="1"> <!-- fade -->
                                     <br>
