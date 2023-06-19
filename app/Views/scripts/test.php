@@ -1,47 +1,78 @@
-<script>
-// Definieren Sie ein Diagramm und den Diagrammtyp
-var diagram = new go.Diagram("myDiagramDiv");
-diagram.initialContentAlignment = go.Spot.Center;
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            width: 900px;
+            height: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Hinzugefügt */
+        }
 
-// Fügen Sie einen Knotentyp hinzu, der scrollbar ist
-diagram.nodeTemplate =
-  gojs(go.Node, "Auto",
-    { resizable: true, resizeObjectName: "BODY" },
-    gojs(go.Shape, "RoundedRectangle", { fill: "white" }),
-    gojs(go.Panel, "Vertical",
-      { defaultAlignment: go.Spot.Left, margin: 5 },
-      gojs(go.TextBlock,
-        { margin: 5, editable: true },
-        new go.Binding("text", "text").makeTwoWay()
-      )
-    ),
-    // Hinzufügen der Scrollbalken
-    gojs("ScrollBar",
-      { alignment: go.Spot.Right, width: 10 },
-      new go.Binding("visible", "visible").ofObject("BODY").not()
-    ),
-    // Verknüpfen der Scrollbar mit dem Inhalt des Knotens
-    {
-      mouseEnter: function(e, obj) { showScrollBar(obj, true); },
-      mouseLeave: function(e, obj) { showScrollBar(obj, false); }
-    }
-  );
+        .shape {
+            width: calc(33.33% - 50px);
+            height: calc(33.33% - 50px);
+            background-color: blue;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            z-index: 2; /* Hinzugefügt */
+        }
 
-// Hilfsfunktion zum Ein- und Ausblenden der Scrollbar
-function showScrollBar(node, show) {
-  var ad = node.findAdornment("ScrollBar");
-  if (ad !== null) ad.findObject("BODY").visible = show;
-}
+        .oval {
+            border-radius: 50%;
+        }
 
-// Erstellen Sie einige Knoten mit langem Text
-diagram.model = new go.GraphLinksModel(
-  [
-    { key: 1, text: "Langer Text für Knoten 1. Dieser Text wird im scrollbaren Knoten angezeigt." },
-    { key: 2, text: "Ein weiterer langer Text für Knoten 2. Der Inhalt kann über den Scrollbalken gescrollt werden." }
-  ],
-  [
-    { from: 1, to: 2 }
-  ]
-);
+        .octagon {
+            width: calc(33.33% - 50px);
+            height: calc(33.33% - 50px);
+            background-color: blue;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            clip-path: polygon(29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%);
+            z-index: 2; /* Hinzugefügt */
+        }
 
-</script>
+        .line {
+            position: absolute;
+            width: 2px;
+            height: calc(33.33% + 20px);
+            background-color: red;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; /* Hinzugefügt */
+        }
+
+
+        .line2 {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: red;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="shape">Quadrat</div>
+        <div class="shape oval">Kreis</div>
+        <div class="line2"></div>
+        <div class="line"></div>
+        <div class="shape octagon">Oktagon</div>
+    </div>
+</body>
+</html>

@@ -7,20 +7,22 @@ class Index extends BaseController {
         $data['title'] = 'Index';
 
 
-        echo view('templates/Header', $data);
+        echo view('templates/Header2', $data);
         echo view('pages/Index');
 //        echo view('pages/Modals/Index');
-        echo view('pages/Modals/neu');
+        echo view('pages/Modals/Neu.php');
         echo view('scripts/CSVParser');
         echo view('scripts/index.php');
 
         echo view('scripts/Generate_Graph.php');
-        echo view('scripts/Generate_Subtask.php');
+        echo view('scripts/Generate_Subgraph.php');
 
         
         echo view('scripts/CSVWriter.php');
         echo view('modals/legend');
         echo view('templates/Footer');
+        // echo view('scripts/test.php');
+
     }
 
     function writeCSV(){

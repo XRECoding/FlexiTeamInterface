@@ -162,16 +162,11 @@
                                 <div class="progress-bar" id="progressBar" role="progressbar" style="width: 100%; color: black; background-color: mediumpurple; font-size: 140%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Surgery</div>
                             </div>
 
-                            <div class="row" style="margin-left: inherit; margin-right: inherit; margin-top: 3.85%; height: 77%" >
-                                <div class="col h-100 border-end border-top border-bottom border-start">
+                            <div class="row" style="margin-left: inherit; margin-right: inherit; margin-top: 3.85%; height: 77%" >                                
+                                <div class="col h-100 border-end border-top border-bottom">
+                                    <div class="container">
 
-                                    <div class="tab-content" id="myTabContent">
-                                        <!-- Staff Tab -->
-                                        <div class="tab-pane fade show active" id="staff-tab-pane-2" role="tabpanel" aria-labelledby="staff-tab" tabindex="0">
-
-                                            <br>
-
-                                            <!-- Staff Listing -->
+                                        <div class="shape">
                                             <div class="tableFixHead">
                                                 <table> <!-- class="table table-bordered table-striped" -->
                                                     <thead>
@@ -185,43 +180,24 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-
                                         </div>
-
-                                        <!-- Resource Tab -->
-                                        <div class="tab-pane fade" id="resource-tab-pane-2" role="tabpanel" aria-labelledby="resource-tab" tabindex="1">
-
-                                            <br>
-
-                                            <!-- Resource Listing -->
-                                            <div class="tableFixHead">
-                                                <table>
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Number</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="main-resourceTable">
-                                                    <!-- Body gets filled with JS -->
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="col h-100 border-end border-top border-bottom">
-                                    <div class="container">
-
-                                        <div class="shape"></div>
                                         <div class="shape oval" id="kreis"></div>
                                         <div class="lineVerticalMiddle"></div>
                                         <div id="linesAndText"></div>
-                                        <div class="shape octagon"></div>
-                                        
+                                        <div class="shape octagon">
+                                        <div class="tableFixHead">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Number</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="main-resourceTable">
+                                                <!-- Body gets filled with JS -->
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         
                                     </div>
                                 </div>
