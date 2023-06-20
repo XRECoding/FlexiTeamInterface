@@ -17,6 +17,8 @@ class Index extends BaseController {
 //        echo view('pages/Modals/Neu_zoom_in.php');
 
         // JavaScript
+        // Touch support for mobile devices
+        echo view('scripts/TouchSupport.php');
         // CSV Parser
         echo view('scripts/CSVParser');
         // general JS for the page
