@@ -102,7 +102,6 @@
                                 </div>
 
 
-
                                 <!-- Resource Tab -->
                                 <div class="tab-pane" id="resource-tab-pane" role="tabpanel" aria-labelledby="resource-tab" tabindex="1"> <!-- fade -->
                                     <br>
@@ -146,73 +145,43 @@
                             <div class="row" style="margin-left: inherit; margin-right: inherit; margin-top: 3.85%; height: 88.4%" >
                                 <div class="col h-100 border-end border-top border-bottom border-start">
 
-                                    <div class="tab-content" id="myTabContent">
-                                        <!-- Staff Tab -->
-                                        <div class="tab-pane fade show active" id="staff-tab-pane-2" role="tabpanel" aria-labelledby="staff-tab" tabindex="0">
-
-                                            <br>
-
-                                            <!-- Staff Listing -->
-                                            <div class="tableFixHead">
-                                                <table> <!-- class="table table-bordered table-striped" -->
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Job</th>
-                                                        <th>Name</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="main-staffTable">
-                                                    <!-- Body gets filled with JS -->
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                        </div>
-
-                                        <!-- Resource Tab -->
-                                        <div class="tab-pane fade" id="resource-tab-pane-2" role="tabpanel" aria-labelledby="resource-tab" tabindex="1">
-
-                                            <br>
-
-                                            <!-- Resource Listing -->
-                                            <div class="tableFixHead">
-                                                <table>
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Number</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="main-resourceTable">
-                                                    <!-- Body gets filled with JS -->
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
+                                <div class="container">
+                                    <div class="shape oval" id="oval">
+                                        <div class="tableFixHead">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Number</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="main-resourceTable">
+                                                <!-- Body gets filled with JS -->
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-
-                                </div>
-
-
-                                <div class="col h-100 border-end border-top border-bottom">
-                                    <div class="container">
-
-                                        <div class="shape" id="square" ></div>
-                                        <div class="shape oval" id="oval" style="text-align: center"></div>
-                                        <div class="lineVerticalMiddle"></div>
-                                        <div id="linesAndText"></div>
-                                        <div class="shape octagon" id="octagon"></div>
-                                        
-                                        
+                                    <div class="shape" id="square" style="text-align: center"></div>
+                                    <div class="lineVerticalMiddle"></div>
+                                    <div id="linesAndText"></div>
+                                    <div class="shape octagon" id="octagon">
+                                        <div class="tableFixHead">
+                                            <table> <!-- class="table table-bordered table-striped" -->
+                                                <thead>
+                                                <tr>
+                                                    <th>Job</th>
+                                                    <th>Name</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="main-staffTable">
+                                                <!-- Body gets filled with JS -->
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-
                                 </div>
 
                             </div>
-
-
-
                         </div>
 
                     </div>

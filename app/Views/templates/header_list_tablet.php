@@ -44,8 +44,8 @@
         }
 
         .shape {
-            width: calc(33.33% - 50px);
-            height: calc(45% - 50px);
+            width: calc(50% - 50px);
+            height: calc(25% - 50px);
             background-color: #DAE8FC;
             margin: 10px;
             display: flex;
@@ -58,13 +58,13 @@
 
         .oval {
             border-radius: 50%;
-            width: calc(25% - 50px);
-            height: calc(25% - 50px);
+            width: calc(50% - 50px);
+            height: calc(33% - 50px);
         }
 
         .octagon {
-            width: calc(33.33% - 50px);
-            height: calc(45% - 50px);
+            width: calc(50% - 50px);
+            height: calc(33.33% - 50px);
             position: relative;
             display: flex;
             align-items: center;
@@ -78,8 +78,8 @@
             position: absolute;
             width: 2px;
             top: 50%;
-            right: 20%;
-            width: 40%;
+            right: 22%;
+            width: 42%;
             height: 2px;
             background-color: black;
             transform: translateX(50%);
@@ -113,7 +113,7 @@
         .lineLeftSmall {
             position: absolute;
             width: 50%;
-            height: 1px;
+            height: 2px;
             background-color: black;
             top: 50%;
             left: 0;
@@ -124,7 +124,7 @@
           .lineLeftBig {
             position: absolute;
             width: 100%;
-            height: 1px;
+            height: 2px;
             background-color: black;
             top: 50%;
             left: 0;
@@ -160,7 +160,7 @@
             position: absolute;
             right: 0;
             width: 15%;
-            height: 1px;
+            height: 2px;
             background-color: black;
             top: 75%;
             transform: translateY(-50%);

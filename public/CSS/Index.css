@@ -13,8 +13,6 @@
 table {
     border-collapse: collapse;
     width: 100%;
-    /*width: inherit;*/
-    /*overflow: auto;*/
 }
 
 th, td {
@@ -25,28 +23,25 @@ th     {
     background:#eee;
 }
 
-table tr td {
-    /*border: 1px solid red;*/
-}
-
 /* Color setting for the critical procedures in the Dropdown*/
 option.critical {
     background-color: #ff0000;
 }
 
+/* Bigger drag and drop window for main pane tables */
 #main-resourceTable, #main-staffTable {
-    /* Bigger drag and drop window */
-    border-bottom: 150px solid #ffffff;
+    border-bottom: 150px;
     width: 100%;
     min-height: 100px;
+    background-color: transparent;
 }
 
+/* Bigger drag and drop window for sidebar tables */
 #staffTable, #resourceTable {
-    /* Bigger drag and drop window */
     border-bottom: 150px solid #F8F9FA;
 }
 
-/* Bootstrap settings have to be changed to allow drag and drop into empty table */
+/* Bootstrap table settings have to be changed to allow drag and drop into empty table */
 tbody{
     box-sizing: unset;
 }
@@ -55,6 +50,13 @@ table {
     min-height: unset;
 }
 
+/* Style for the modal sidebar table*/
 table.sidebar{
     width: 100%;
+}
+
+/* Style for the staff to be replaced*/
+td.replace {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
 }
