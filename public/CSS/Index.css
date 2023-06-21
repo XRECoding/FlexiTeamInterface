@@ -1,8 +1,12 @@
 /* Defining variables */
 :root{
+    /* Color for critical area */
     --critical: #ea3131;
+    /* Color for pre surgery */
     --pre-surgery: #DAE8FC;
+    /* Color for surgery */
     --surgery: #ffc0cb;
+    /* Color for post surgery */
     --post-surgery: #D5E8D4;
 }
 
@@ -21,6 +25,9 @@
 
 table {
     border-collapse: collapse;
+    /* Resetting bootstrap setting for easier Drag and drop into empty table */
+    min-height: unset;
+    /* Centering Table */
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,7 +42,7 @@ th     {
 
 /* Color setting for the critical procedures in the Dropdown*/
 option.critical {
-    background-color: #ff0000;
+    background-color: var(--critical);
 }
 
 /* Bigger drag and drop window for main pane tables */
@@ -55,15 +62,12 @@ tbody{
     box-sizing: unset;
 }
 
-table {
-    min-height: unset;
-}
-
 /* Style for the modal sidebar table*/
 table.sidebar{
     width: 100%;
 }
 
+/* Style for the modal main pane table */
 table.mainPane{
     width: 75%;
 }
