@@ -1,10 +1,7 @@
-
-
-<!-- The Popup Modal -->
+<!-- The Zoom Modal -->
 <div id="myModal" class="modal" data-keyboard="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
-
 
 
             <div class="modal-body">
@@ -48,7 +45,6 @@
                                         Close
                                     </button>
                                 </li>
-
 
                             </ul>
 
@@ -179,8 +175,8 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
 

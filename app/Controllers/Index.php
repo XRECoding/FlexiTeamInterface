@@ -8,20 +8,15 @@ class Index extends BaseController {
 
         // false = list modal; true = zoom in modal
         // this logic can be removed once the final modal is decided
-        $data['zoom'] = false;
+        $data['zoom'] = true;
 
         // header
         echo view('templates/Header', $data);
-//         echo view('templates/Header_list', $data);
-        // echo view('templates/Header_list_tablet', $data);
-//        echo view('templates/header_zoom', $data);
-        // echo view('templates/header_zoom_tablet', $data);
 
+        // warning modals for irreversible actions
         echo view('modals/legend');
         echo view('modals/submit');
         echo view('modals/undo');
-
-
 
 
         // Main Page
@@ -46,8 +41,6 @@ class Index extends BaseController {
         echo view('scripts/Generate_Subgraph.php');
         // CSV Writer
         echo view('scripts/CSVWriter.php');
-
-        // the modal for the graph legend
 
         // footer
         echo view('templates/Footer');
