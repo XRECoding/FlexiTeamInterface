@@ -45,7 +45,7 @@
 
         .shape {
             width: calc(50% - 50px);
-            height: calc(33% - 50px);
+            height: calc(25% - 50px);
             background-color: #DAE8FC;
             margin: 10px;
             display: flex;

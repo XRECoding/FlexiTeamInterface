@@ -8,13 +8,13 @@
         const nodeColore = clickedNode.data.color;
 
         // Change color and text of the forms to reflect the status of the given node
-        var ovalElement = document.getElementById('oval');
-        ovalElement.style.backgroundColor = nodeColore;
-        ovalElement.textContent = clickedNode.data.text;;
-
-        var squareElement = document.getElementById('square');
+        var squareElement = document.getElementById('oval');
         squareElement.style.backgroundColor = nodeColore;
         if (squareElement.childElementCount === 0)  { squareElement.textContent = "Resources"; }
+
+        var ovalElement = document.getElementById('square');
+        ovalElement.style.backgroundColor = nodeColore;
+        ovalElement.textContent = clickedNode.data.text;
         
         var octagonElement = document.getElementById('octagon');
         octagonElement.style.backgroundColor = nodeColore;

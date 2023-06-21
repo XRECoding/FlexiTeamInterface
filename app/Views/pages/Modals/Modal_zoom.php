@@ -146,8 +146,25 @@
                                 <div class="col h-100 border-end border-top border-bottom border-start">
 
                                 <div class="container">
-
-                                    <div class="shape" id="square">
+                                    <div class="shape oval" id="oval">
+                                        <div class="tableFixHead">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Number</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="main-resourceTable">
+                                                <!-- Body gets filled with JS -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="shape" id="square" style="text-align: center"></div>
+                                    <div class="lineVerticalMiddle"></div>
+                                    <div id="linesAndText"></div>
+                                    <div class="shape octagon" id="octagon">
                                         <div class="tableFixHead">
                                             <table> <!-- class="table table-bordered table-striped" -->
                                                 <thead>
@@ -162,27 +179,8 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="shape oval" id="oval"></div>
-                                    <div class="lineVerticalMiddle"></div>
-                                    <div id="linesAndText"></div>
-                                    <div class="shape octagon" id="octagon">
-                                    <div class="tableFixHead">
-                                        <table>
-                                            <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Number</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="main-resourceTable">
-                                            <!-- Body gets filled with JS -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    </div>
-
                                 </div>
+
                             </div>
                         </div>
 

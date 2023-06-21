@@ -9,8 +9,8 @@ class Index extends BaseController {
         // header
         // echo view('templates/Header_list', $data);
         // echo view('templates/Header_list_tablet', $data);
-        // echo view('templates/header_zoom', $data);
-        echo view('templates/header_zoom_tablet', $data);
+        echo view('templates/header_zoom', $data);
+        // echo view('templates/header_zoom_tablet', $data);
 
 
 
