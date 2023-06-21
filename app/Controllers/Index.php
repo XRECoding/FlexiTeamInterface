@@ -12,6 +12,11 @@ class Index extends BaseController {
         echo view('templates/header_zoom', $data);
         // echo view('templates/header_zoom_tablet', $data);
 
+        echo view('modals/legend');
+        echo view('modals/submit');
+        echo view('modals/undo');
+
+
 
 
         // Main Page
@@ -33,7 +38,6 @@ class Index extends BaseController {
         echo view('scripts/CSVWriter.php');
 
         // the modal for the graph legend
-        echo view('modals/legend');
 
         // footer
         echo view('templates/Footer');
