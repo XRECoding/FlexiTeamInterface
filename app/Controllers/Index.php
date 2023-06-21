@@ -7,9 +7,9 @@ class Index extends BaseController {
         $data['title'] = 'Index';
 
         // header
-        // echo view('templates/Header_list', $data);
+         echo view('templates/Header_list', $data);
         // echo view('templates/Header_list_tablet', $data);
-        echo view('templates/header_zoom', $data);
+//        echo view('templates/header_zoom', $data);
         // echo view('templates/header_zoom_tablet', $data);
 
         echo view('modals/legend');
@@ -23,8 +23,8 @@ class Index extends BaseController {
         echo view('pages/Index');
 
         // the desired modal
-        // echo view('pages/Modals/Modal_list.php');
-        echo view('pages/Modals/Modal_zoom.php');
+         echo view('pages/Modals/Modal_list.php');
+//        echo view('pages/Modals/Modal_zoom.php');
 
         // JavaScript
         // Touch support for mobile devices
