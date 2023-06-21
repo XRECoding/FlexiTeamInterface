@@ -115,7 +115,7 @@
 
 
     // add undo function to undo button
-    document.getElementById("modal_undo_button").onclick = function () {
+    document.getElementById("undoButton").onclick = function () {
         location.reload();
     }
 

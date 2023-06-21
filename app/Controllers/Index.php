@@ -7,24 +7,14 @@ class Index extends BaseController {
         $data['title'] = 'Index';
 
         // header
-        // echo view('templates/Header_list', $data);
-        // echo view('templates/Header_list_tablet', $data);
-        echo view('templates/header_zoom', $data);
-        // echo view('templates/header_zoom_tablet', $data);
-
-        echo view('modals/legend');
-        echo view('modals/submit');
-        echo view('modals/undo');
-
-
-
+        echo view('templates/Header2', $data);
 
         // Main Page
         echo view('pages/Index');
 
         // the desired modal
-        // echo view('pages/Modals/Modal_list.php');
-        echo view('pages/Modals/Modal_zoom.php');
+        echo view('pages/Modals/Neu.php');
+//        echo view('pages/Modals/Neu_zoom_in.php');
 
         // JavaScript
         // Touch support for mobile devices
@@ -40,6 +30,7 @@ class Index extends BaseController {
         echo view('scripts/CSVWriter.php');
 
         // the modal for the graph legend
+        echo view('modals/legend');
 
         // footer
         echo view('templates/Footer');
