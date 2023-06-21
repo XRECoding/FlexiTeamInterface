@@ -1,4 +1,8 @@
-/* Defining variables */
+/**
+    ------------------------------
+    Defining variables
+    ------------------------------
+ */
 :root{
     /* Color for critical area */
     --critical: #ea3131;
@@ -11,7 +15,11 @@
 }
 
 
-/* Basic CSS for scrollable table*/
+/**
+    ------------------------------
+    Basic CSS for scrollable table
+    ------------------------------
+ */
 .tableFixHead {
     overflow: auto;
     height: 75%;
@@ -40,6 +48,11 @@ th     {
     background:#eee;
 }
 
+/**
+    ------------------------------
+    CSS for page
+    ------------------------------
+ */
 /* Color setting for the critical procedures in the Dropdown*/
 option.critical {
     background-color: var(--critical);
@@ -78,9 +91,15 @@ td.replace {
     text-decoration-thickness: 3px;
 }
 
+/* Keeping a buttons icon and text in the same line*/
+button.btn-outline-dark {
+    white-space: nowrap;
+}
 
 /**
+    ------------------------------
     CSS for modal graph
+    ------------------------------
  */
 .container {
     width: 100%;
@@ -103,6 +122,7 @@ td.replace {
     color: black;
     position: relative;
     z-index: 2;
+    text-align: center
 }
 
 .oval {

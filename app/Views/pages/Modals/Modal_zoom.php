@@ -157,7 +157,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="shape" id="square" style="text-align: center"></div>
+                                    <div class="shape" id="square"></div>
                                     <div class="lineVerticalMiddle"></div>
                                     <div id="linesAndText"></div>
                                     <div class="shape octagon" id="octagon">

@@ -8,7 +8,7 @@ class Index extends BaseController {
 
         // false = list modal; true = zoom in modal
         // this logic can be removed once the final modal is decided
-        $data['zoom'] = true;
+        $data['zoom'] = false;
 
         // header
         echo view('templates/Header', $data);
