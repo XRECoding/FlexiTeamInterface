@@ -8,17 +8,18 @@
         const nodeColore = clickedNode.data.color;
 
         // Change color and text of the forms to reflect the status of the given node
-        var ovalElement = document.getElementById('oval');
-        ovalElement.style.backgroundColor = nodeColore;
-        ovalElement.textContent = clickedNode.data.text;;
-
-        var squareElement = document.getElementById('square');
+        var squareElement = document.getElementById('oval');
         squareElement.style.backgroundColor = nodeColore;
-        squareElement.textContent = "Resources";
+        if (squareElement.childElementCount === 0)  { squareElement.textContent = "Resources"; }
 
+        var ovalElement = document.getElementById('square');
+        ovalElement.style.backgroundColor = nodeColore;
+        ovalElement.textContent = clickedNode.data.text;
+        
         var octagonElement = document.getElementById('octagon');
         octagonElement.style.backgroundColor = nodeColore;
-        octagonElement.textContent = "Staff";
+        if (octagonElement.childElementCount === 0)  { octagonElement.textContent = "Staff"; }
+
 
 
         // Change color and text of the progressbar to reflect the status of the given node

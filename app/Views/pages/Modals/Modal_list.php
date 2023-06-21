@@ -152,7 +152,10 @@
 
                                             <!-- Staff Listing -->
                                             <div class="tableFixHead">
+
                                                 <table class="mainPane"> <!-- class="table table-bordered table-striped" -->
+
+
                                                     <thead>
                                                     <tr>
                                                         <th>Job</th>
@@ -174,7 +177,9 @@
 
                                             <!-- Resource Listing -->
                                             <div class="tableFixHead">
+
                                                 <table class="mainPane">
+
                                                     <thead>
                                                     <tr>
                                                         <th>Name</th>
@@ -196,20 +201,31 @@
                                 <div class="col h-100 border-end border-top border-bottom">
                                     <div class="container">
 
-                                        <div class="shape" id="square" ></div>
+
                                         <div class="shape oval" id="oval" style="text-align: center"></div>
+                                        <div class="shape" id="square" style="text-align: center"></div>
                                         <div class="lineVerticalMiddle"></div>
                                         <div id="linesAndText"></div>
-                                        <div class="shape octagon" id="octagon"></div>
-
+                                        <div class="shape octagon" id="octagon" style="text-align: center"></div>
+                                        
+                                        
                                     </div>
+
                                 </div>
 
                             </div>
+
+
+
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+</div>
+
