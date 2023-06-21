@@ -47,10 +47,9 @@ option.critical {
 
 /* Bigger drag and drop window for main pane tables */
 #main-resourceTable, #main-staffTable {
-    border-bottom: 150px;
+    border-bottom: 150px solid transparent;
     width: 100%;
     min-height: 100px;
-    background-color: transparent;
 }
 
 /* Bigger drag and drop window for sidebar tables */
