@@ -6,8 +6,13 @@ class Index extends BaseController {
     public function index() {
         $data['title'] = 'Index';
 
+        // false = list modal; true = zoom in modal
+        // this logic can be removed once the final modal is decided
+        $data['zoom'] = false;
+
         // header
-         echo view('templates/Header_list', $data);
+        echo view('templates/Header', $data);
+//         echo view('templates/Header_list', $data);
         // echo view('templates/Header_list_tablet', $data);
 //        echo view('templates/header_zoom', $data);
         // echo view('templates/header_zoom_tablet', $data);
@@ -23,8 +28,11 @@ class Index extends BaseController {
         echo view('pages/Index');
 
         // the desired modal
-         echo view('pages/Modals/Modal_list.php');
-//        echo view('pages/Modals/Modal_zoom.php');
+        if ($data['zoom']){
+            echo view('pages/Modals/Modal_zoom.php');
+        } else {
+            echo view('pages/Modals/Modal_list.php');
+        }
 
         // JavaScript
         // Touch support for mobile devices
