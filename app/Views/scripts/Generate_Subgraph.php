@@ -27,9 +27,9 @@
         progressBar.style.backgroundColor = nodeColore;
 
         switch (nodeColore) {
-            case "#DAE8FC":
+            case window.getComputedStyle(document.body).getPropertyValue('--pre-surgery'):
                 document.getElementById("progressBar").innerHTML = "Pre-Surgery"; break;
-            case "pink":
+            case window.getComputedStyle(document.body).getPropertyValue('--surgery'):
                 document.getElementById("progressBar").innerHTML = "Surgery"; break;
             default:
             document.getElementById("progressBar").innerHTML = "Post-Surgery";
