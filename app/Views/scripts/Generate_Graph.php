@@ -302,7 +302,7 @@
                 },
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", {
-                        fill: "#ea3131", // Die Farbe der Ellipse wird durch den Parameter "color" festgelegt.
+                        fill: window.getComputedStyle(document.body).getPropertyValue('--critical'), // get the CSS color for critical area
 
                     }),
                     $(go.Placeholder, {
@@ -330,7 +330,7 @@
                 return obj.workflowId === selectedOptionText;
             });
 
-            dfs(foundObject.subTasks, 1, "#DAE8FC");
+            dfs(foundObject.subTasks, 1, window.getComputedStyle(document.body).getPropertyValue('--pre-surgery'));
 
 
         }
@@ -346,7 +346,7 @@
             // Setze die Knoten auf das Diagramm-Modell innerhalb einer Gruppe.
             myDiagram.model.addNodeData({key: currentNodeId + "group", isGroup: true, category: (currentNode.problem === "yes") ? "Gruppe2" : "Gruppe1" });
 
-            if (currentNode.tasks === "Surgery") {nodeColore = "pink"};
+            if (currentNode.tasks === "Surgery") {nodeColore = window.getComputedStyle(document.body).getPropertyValue('--surgery')};
 
             // Erstelle den Diagramm-Knoten für Task, Data und Staff
             myDiagram.model.addNodeData({key: (currentNodeId + "data"), text: currentNode.consumedData, category: "Ellipse", group: currentNodeId + "group", color: nodeColore});
@@ -357,7 +357,7 @@
             myDiagram.model.addLinkData({from: (currentNodeId + "data"), to: currentNodeId, category: "template1"});
             myDiagram.model.addLinkData({from: (currentNodeId + "staff"), to: currentNodeId, category: "template1"});
 
-            if (currentNode.tasks === "Surgery") {nodeColore = "#D5E8D4"};
+            if (currentNode.tasks === "Surgery") {nodeColore = window.getComputedStyle(document.body).getPropertyValue('--post-surgery')};
 
             if (nextNodes.length > 1) {
                 myDiagram.model.addNodeData({key: (currentNodeId + "gate"), text: "AND", category: "Circle"});

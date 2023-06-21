@@ -6,7 +6,6 @@
         <div class="modal-content">
 
 
-
             <div class="modal-body">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
@@ -153,7 +152,7 @@
 
                                             <!-- Staff Listing -->
                                             <div class="tableFixHead">
-                                                <table> <!-- class="table table-bordered table-striped" -->
+                                                <table class="mainPane"> <!-- class="table table-bordered table-striped" -->
                                                     <thead>
                                                     <tr>
                                                         <th>Job</th>
@@ -175,7 +174,7 @@
 
                                             <!-- Resource Listing -->
                                             <div class="tableFixHead">
-                                                <table>
+                                                <table class="mainPane">
                                                     <thead>
                                                     <tr>
                                                         <th>Name</th>
@@ -202,18 +201,12 @@
                                         <div class="lineVerticalMiddle"></div>
                                         <div id="linesAndText"></div>
                                         <div class="shape octagon" id="octagon"></div>
-                                        
-                                        
-                                    </div>
 
+                                    </div>
                                 </div>
 
                             </div>
-
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
