@@ -6,25 +6,28 @@ class Index extends BaseController {
     public function index() {
         $data['title'] = 'Index';
 
-        // header
-         echo view('templates/Header_list', $data);
-        // echo view('templates/Header_list_tablet', $data);
-//        echo view('templates/header_zoom', $data);
-        // echo view('templates/header_zoom_tablet', $data);
+        // false = list modal; true = zoom in modal
+        // this logic can be removed once the final modal is decided
+        $data['zoom'] = false;
 
+        // header
+        echo view('templates/Header', $data);
+
+        // warning modals for irreversible actions
         echo view('modals/legend');
         echo view('modals/submit');
         echo view('modals/undo');
-
-
 
 
         // Main Page
         echo view('pages/Index');
 
         // the desired modal
-         echo view('pages/Modals/Modal_list.php');
-//        echo view('pages/Modals/Modal_zoom.php');
+        if ($data['zoom']){
+            echo view('pages/Modals/Modal_zoom.php');
+        } else {
+            echo view('pages/Modals/Modal_list.php');
+        }
 
         // JavaScript
         // Touch support for mobile devices
@@ -38,8 +41,6 @@ class Index extends BaseController {
         echo view('scripts/Generate_Subgraph.php');
         // CSV Writer
         echo view('scripts/CSVWriter.php');
-
-        // the modal for the graph legend
 
         // footer
         echo view('templates/Footer');

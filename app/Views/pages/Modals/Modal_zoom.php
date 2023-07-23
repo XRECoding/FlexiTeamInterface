@@ -1,10 +1,7 @@
-
-
-<!-- The Popup Modal -->
+<!-- The Zoom Modal -->
 <div id="myModal" class="modal" data-keyboard="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
-
 
 
             <div class="modal-body">
@@ -48,7 +45,6 @@
                                         Close
                                     </button>
                                 </li>
-
 
                             </ul>
 
@@ -161,7 +157,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="shape" id="square" style="text-align: center"></div>
+                                    <div class="shape" id="square"></div>
                                     <div class="lineVerticalMiddle"></div>
                                     <div id="linesAndText"></div>
                                     <div class="shape octagon" id="octagon">
@@ -179,8 +175,8 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
 

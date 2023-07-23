@@ -1,0 +1,37 @@
+.shape {
+    width: calc(25% - 50px);
+    height: calc(25% - 50px);
+}
+
+.oval {
+    width: calc(66% - 50px);
+    height: calc(45% - 50px);
+}
+
+.octagon {
+    width: calc(66% - 50px);
+    height: calc(45% - 50px);
+}
+
+/* Line Top Right */
+.lineTopRight {
+    height: 2px;
+}
+
+/* Settings for Desktop*/
+@media (min-width: 1200px) {
+    .oval {
+        border-radius: 50%;
+        width: calc(33.33% - 50px);
+        height: calc(33.33% - 50px);
+    }
+
+    .oval {
+        width: calc(40% - 50px);
+        height: calc(45% - 50px);
+    }
+
+    .octagon {
+        width: calc(40% - 50px);
+    }
+}
