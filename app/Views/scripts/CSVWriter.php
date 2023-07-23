@@ -1,6 +1,6 @@
 <script>
     let baseurl = '<?= base_url()?>';
-    const filename = "Neu.csv";     // name of the file. should be set to the name of the AI exported file
+    const filename = randomNumber + ".csv";     // name of the file. should be set to the name of the AI exported file
 
     document.getElementById("csvSaveButton").onclick= function () {
 
