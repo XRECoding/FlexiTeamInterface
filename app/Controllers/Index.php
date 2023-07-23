@@ -17,6 +17,7 @@ class Index extends BaseController {
         echo view('modals/legend');
         echo view('modals/submit');
         echo view('modals/undo');
+        echo view('modals/info');
 
 
         // Main Page
@@ -29,7 +30,11 @@ class Index extends BaseController {
             echo view('pages/Modals/Modal_list.php');
         }
 
+        
+
         // JavaScript
+        echo view('scripts/Info.php');
+
         // Touch support for mobile devices
         echo view('scripts/TouchSupport.php');
         // CSV Parser

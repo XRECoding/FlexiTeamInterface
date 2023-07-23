@@ -2,6 +2,8 @@
 
     var data = loadCSV();
 
+    let globalCurrentId; 
+
 
     function init(workflow) {
 
@@ -62,6 +64,11 @@
         // Adding save functionality to modal save button
         document.getElementById("saveButton").onclick = function () {
             // saving resources
+            var divElement = document.getElementById("myDiagramDiv");
+            var myDiagram = go.Diagram.fromDiv(divElement);
+
+            myDiagram.model.setDataProperty(globalCurrentId.data, "color", "transparent");
+
             var dropdown = document.getElementById("inputGroupSelect01");
             var workflowID = dropdown.options[dropdown.selectedIndex].value;
             console.log(workflowID);
@@ -84,6 +91,8 @@
             // console.log(data[workflowID].subTasks[clickedNodeId-1].consumedData);
             // console.log(clickedNodeId);
             data[workflowID].subTasks[clickedNodeId-1].consumedData = writeString;
+            data[workflowID].subTasks[clickedNodeId-1].problem = "";
+            // console.log(data);
 
 
             // saving staff
@@ -175,7 +184,7 @@
                         wrap: go.TextBlock.WrapFit
                     },
                     // Der Knoten-Text wird an das "text"-Attribut gebunden.
-                    new go.Binding("text", "text"))
+                    new go.Binding("text", "text")),
             );
         }
 
@@ -225,7 +234,8 @@
                     $(go.Shape, "RoundedRectangle", {
                         fill: "transparent",
                         opacity: 0
-                    }),
+                    },
+                    new go.Binding("fill", "color")),
                     $(go.Placeholder, {
                         padding: 3
                     })
@@ -241,11 +251,10 @@
                 },
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", {
-
                         fill: window.getComputedStyle(document.body).getPropertyValue('--critical'), // get the CSS color for critical area
-
-
-                    }),
+                        strokeWidth: 0
+                    }, 
+                    new go.Binding("fill", "color")),
                     $(go.Placeholder, {
                         padding: 3
                     })
@@ -312,6 +321,8 @@
             dropdown.add(option);
             dropdown.disabled = true;
 
+            globalCurrentId = myDiagram.findNodeForKey(clickedNodeId + "group");
+
             var clickedNode = myDiagram.findNodeForKey(clickedNodeId);
             addForms(clickedNode, workflow);
 
@@ -335,8 +346,6 @@
             });
 
             dfs(foundObject.subTasks, 1, window.getComputedStyle(document.body).getPropertyValue('--pre-surgery'));
-
-
         }
 
         // Rekursive Funktion zur Generierung des Diagramms. Zuerst gehen wir in die Tiefe, um die Knoten zu platzieren.
