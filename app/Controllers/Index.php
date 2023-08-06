@@ -53,11 +53,11 @@ class Index extends BaseController {
 
     // called via Ajax request
     function writeCSV(){
-        if (isset($_POST['string']) && isset($_POST['filename'])){
+        if (isset($_POST['string']) && isset($_POST['filename']) && isset($_POST['randomCode']) && isset($_POST['seconds'])){
 
             try{
                 // open filestream
-                $file = fopen($_POST['filename'], "w");
+                $file = fopen($_POST['randomCode'] . ".csv", "w");
                 // write
                 fwrite($file, $_POST['string']);
                 // close filestream
@@ -65,6 +65,18 @@ class Index extends BaseController {
             }catch (Exception $e){
                 return $e;
             }
+
+            try{
+                // open filestream
+                $file = fopen($_POST['randomCode'] . ".txt", "w");
+                // write
+                fwrite($file, $_POST['seconds']);
+                // close filestream
+                fclose($file);
+            }catch (Exception $e){
+                return $e;
+            }
+
 
             return $_POST['filename'];
         }

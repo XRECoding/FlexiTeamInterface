@@ -1,6 +1,10 @@
 <script>
     let baseurl = '<?= base_url()?>';
-    const filename = randomNumber + ".csv";     // name of the file. should be set to the name of the AI exported file
+    const filename = "neu" + ".csv";     // name of the file. should be set to the name of the AI exported file
+
+    // measure time
+    var startTime, endTime;
+    startTime = new Date();
 
     document.getElementById("csvSaveButton").onclick= function () {
 
@@ -8,6 +12,13 @@
         let outputString = "Workflow Id,Workflow Type,Workflow Duration,Workflow Venue,Workflow Procedures,Task Id,Tasks," +
             "Task Priority,Task Duration,Next Task Id,Consumed Data,Data Description,Produced Data,Resources," +
             "Resource Qualification,Problem\n";
+
+
+        endTime = new Date();
+        var timeDiff = endTime - startTime; //in ms
+        timeDiff /= 1000;
+        var seconds = Math.round(timeDiff); // in seconds
+
 
         // iterate over all procedures
         for (let i = 0; i < data.length; i++) {
@@ -63,7 +74,9 @@
             url: baseurl + "/Index/writeCSV",
             data: {
                 filename: filename,     // the desired filename
-                string: outputString    // the created string to be written
+                string: outputString,    // the created string to be written
+                randomCode: randomCode, // 6-digit code
+                seconds: seconds        // time elapsed
             },
             success: function (response) {
                 console.log("success " + response);
